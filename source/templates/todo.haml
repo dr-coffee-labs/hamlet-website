@@ -1,4 +1,15 @@
 .todo-example
-  %textarea.code(placeholder="TODO example template" value=@sourceTemplate)
-  %textarea.code(placeholder="TODO example JavaScript" value=@sourceCode)
-  #todo-output
+  %h4.title It's just JavaScript
+  %hr.divider
+  .description
+    %p JavaScript with zero dependencies. Write template backing objects with clean public APIs using the style of JavaScript you love the most. Don't mess with a model system or learn the differences between a Backbone Collection and a native Array.
+    %p Take a look at how easy it is to create a TODO list.
+  .left-column
+    %textarea.code(placeholder="TODO example template" value=@sourceTemplate)
+    %textarea.code(placeholder="TODO example JavaScript" value=@sourceCode)
+  .right-column
+    %button.reset(click=@reset) Reset this example
+    #todo-output
+  #backbone-todo
+    %h3 Backbone
+    %a(href="http://jsfiddle.net/icoxfog417/pfxP5/" target="_blank") Compare to jsFiddle

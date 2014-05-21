@@ -1,36 +1,46 @@
-template = (selector, data) ->
-  name = selector.replace /#/g, ""
-  fragment = JST[name](data)
-  document.querySelector(selector).appendChild fragment
-
-sourceTemplate = Observable """
-%h2 TODO List
+TEMPLATE_DEFAULT = """
+%h2 todos
 %ul
-  - each @items, (item) ->
+  - each @items, ->
     %li
       %label
-        = item
-        %input(type="checkbox")
-%input(@value)
+        %span.item(@class)= @description
+        %input(type="checkbox" @checked)
+%input(@value @placeholder)
 %button(@click) Add Item
 """
 
-sourceCode = Observable """
+CODE_DEFAULT = """
 model =
   value: Observable ""
   items: Observable []
+  placeholder: "What needs to be done?"
   click: ->
-    @items.push @value()
+    item =
+      description: @value()
+      checked: Observable false
+      class: ->
+        "completed" if item.checked()
+
+    @items.push(item)
     @value("")
 """
+
+# this assumes you're attaching the template
+# to an element using an id selector
+$.fn.template = (data) ->
+  name = @selector.replace /#/g, ""
+  $(this).append(JST[name](data))
+
+sourceTemplate = Observable(TEMPLATE_DEFAULT)
+sourceCode = Observable(CODE_DEFAULT)
 
 build = ->
   templateFn = eval(compiledTemplate())
   templateData = eval(compiledCode())
 
   fragment = templateFn(templateData)
-  # TODO jQuery to remove the element from the DOM
-  document.querySelector("#todo-output").appendChild fragment
+  $("#todo-output").html(fragment)
 
 templateErrors = Observable("")
 codeErrors = Observable("")
@@ -41,12 +51,14 @@ compiledTemplate = Observable("")
 compileTemplate = (str) ->
   try
     compiledTemplate(HamletCompiler.compile(str, runtime: "Runtime"))
+    templateErrors("")
   catch e
     templateErrors(e.message)
 
 compileCode = (str) ->
   try
     compiledCode(CoffeeScript.compile str, bare: true)
+    codeErrors("")
   catch e
     codeErrors(e.message)
 
@@ -59,10 +71,13 @@ sourceCode.observe(compileCode)
 compiledCode.observe(build)
 compiledTemplate.observe(build)
 
-template "#errors",
+$("#errors").template
   templateErrors: templateErrors
   codeErrors: codeErrors
 
-template "#todo",
+$("#todo").template
   sourceTemplate: sourceTemplate
   sourceCode: sourceCode
+  reset: ->
+    sourceTemplate(TEMPLATE_DEFAULT)
+    sourceCode(CODE_DEFAULT)

@@ -1,22 +1,37 @@
 %header
-  %h1.centered Hamlet
-  %a.button.github.right(href="https://github.com/dr-coffee-labs/hamlet" target="_blank") GitHub
+  %h1.centered.logo
+  %a.button.github.right(href="https://github.com/dr-coffee-labs/hamlet" target="_blank")
+    %span.icon.github
+    %span GitHub
 %main
   %section.pitch
     .prince
-    %span.tag-line
-      %h2 Hamlet - action is eloquence
+    .tag-line
+      %h2
+        Interaction is eloquence.
+        .attribution
+          = "-William Shakespeare, "
+          %i Coriolanus
+          (pretty much)
+
       .description
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Hamlet is a rich templating system that provides bidirectional data binding. It's framework agnostic and focuses on immaculate templating, leaving you to architect your application using your favorite tools. All of this in only 2.7kb, minified and gzipped!
+      .button.install Install Hamlet
+    .base
   %section.live-examples
-    %h3 Live Examples
+    %h3 How about some live examples?
+    %nav.menu
+      .button Small Footprint
+      .button Live Filtering
+      .button Not a Framework
+      .button.selected Just JavaScript
+      .button Simple Templates
+
     .examples
       #todo
       #filtered-list
       #shopping-cart
+%footer.centered
+  %p Ready to get started?
+  .button.install Install Hamlet
 #errors
