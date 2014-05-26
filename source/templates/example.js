@@ -1,14 +1,14 @@
-(window.JST || (window.JST = {}))['todo'] = 
+(window.JST || (window.JST = {}))['example'] = 
 (function(data) {
   return (function() {
     var __runtime;
     __runtime = Runtime(this);
     __runtime.push(document.createDocumentFragment());
     __runtime.push(document.createElement("div"));
-    __runtime.classes("todo-example");
+    __runtime.classes("example", this.hideInactive);
     __runtime.push(document.createElement("h4"));
     __runtime.classes("title");
-    __runtime.text("It's just JavaScript\n");
+    __runtime.text(this.header);
     __runtime.pop();
     __runtime.push(document.createElement("hr"));
     __runtime.classes("divider");
@@ -16,22 +16,19 @@
     __runtime.push(document.createElement("div"));
     __runtime.classes("description");
     __runtime.push(document.createElement("p"));
-    __runtime.text("JavaScript with zero dependencies. Write template backing objects with clean public APIs using the style of JavaScript you love the most. Don't mess with a model system or learn the differences between a Backbone Collection and a native Array.\n");
-    __runtime.pop();
-    __runtime.push(document.createElement("p"));
-    __runtime.text("Take a look at how easy it is to create a TODO list.\n");
+    __runtime.text(this.description);
     __runtime.pop();
     __runtime.pop();
     __runtime.push(document.createElement("div"));
     __runtime.classes("left-column");
     __runtime.push(document.createElement("textarea"));
     __runtime.classes("code");
-    __runtime.attribute("placeholder", "TODO example template");
+    __runtime.attribute("placeholder", "template code");
     __runtime.attribute("value", this.sourceTemplate);
     __runtime.pop();
     __runtime.push(document.createElement("textarea"));
     __runtime.classes("code");
-    __runtime.attribute("placeholder", "TODO example JavaScript");
+    __runtime.attribute("placeholder", "JavaScript code");
     __runtime.attribute("value", this.sourceCode);
     __runtime.pop();
     __runtime.pop();
@@ -43,11 +40,11 @@
     __runtime.text("Reset this example\n");
     __runtime.pop();
     __runtime.push(document.createElement("div"));
-    __runtime.id("todo-output");
+    __runtime.classes("output");
     __runtime.pop();
     __runtime.pop();
     __runtime.push(document.createElement("div"));
-    __runtime.id("backbone-todo");
+    __runtime.classes("competing-example");
     __runtime.push(document.createElement("h3"));
     __runtime.text("Backbone\n");
     __runtime.pop();

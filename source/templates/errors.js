@@ -5,7 +5,7 @@
     __runtime = Runtime(this);
     __runtime.push(document.createDocumentFragment());
     __runtime.push(document.createElement("div"));
-    __runtime.classes("error-container");
+    __runtime.classes("error-container", this["class"]);
     __runtime.push(document.createElement("div"));
     __runtime.classes("template-errors");
     __runtime.text(this.templateErrors);
