@@ -4,6 +4,8 @@
 #= require hamlet_adapter
 #= require templates
 
+#= require_tree ./ace
+
 #= require data
 #= require example
 #= require main

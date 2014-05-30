@@ -41,14 +41,12 @@
     __runtime.pop();
     __runtime.push(document.createElement("div"));
     __runtime.classes("left-column");
-    __runtime.push(document.createElement("textarea"));
+    __runtime.push(document.createElement("div"));
     __runtime.classes("code", "template");
-    __runtime.attribute("placeholder", "template code");
     __runtime.attribute("value", this.sourceTemplate);
     __runtime.pop();
-    __runtime.push(document.createElement("textarea"));
+    __runtime.push(document.createElement("div"));
     __runtime.classes("code", "javascript");
-    __runtime.attribute("placeholder", "JavaScript code");
     __runtime.attribute("value", this.sourceCode);
     __runtime.pop();
     __runtime.pop();

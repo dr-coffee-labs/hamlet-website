@@ -336,4 +336,5 @@ $("#navigation").template
 
 examples.forEach (e) ->
   $(e.selector).html(JST.example(e))
+  e.configureEditors()
   e.build()

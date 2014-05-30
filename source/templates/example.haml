@@ -4,8 +4,8 @@
   .description
     %p= @description
   .left-column
-    %textarea.code.template(placeholder="template code" value=@sourceTemplate)
-    %textarea.code.javascript(placeholder="JavaScript code" value=@sourceCode)
+    .code.template(value=@sourceTemplate)
+    .code.javascript(value=@sourceCode)
   .right-column
     %button.reset(click=@reset) Reset this example
     .output
