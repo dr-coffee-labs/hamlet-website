@@ -1,0 +1,247 @@
+/* line 8, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "IM Fell DW Pica Pro";
+  padding: 0.5em 0;
+  margin: 0; }
+
+/* line 13, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+h1 {
+  font-size: 3em; }
+
+/* line 16, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+h2 {
+  font-size: 2.5em; }
+
+/* line 19, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+h3 {
+  font-size: 2em; }
+
+/* line 22, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+h4 {
+  font-size: 1.75em; }
+
+/* line 25, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+h5 {
+  font-size: 1.5em; }
+
+/* line 28, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+h6 {
+  font-size: 1.25em; }
+
+/* line 31, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+/* line 36, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+iframe {
+  width: 100%;
+  height: 600px;
+  border: none; }
+
+@font-face {
+  font-family: "IM Fell DW Pica Pro";
+  src: url(/fonts/FePIrm27C.otf) format("opentype"); }
+
+/* line 45, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+*, *:before, *:after {
+  box-sizing: border-box !important; }
+
+/* line 48, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.hidden {
+  display: none !important; }
+
+/* line 51, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+body {
+  background-color: #ccd0cf;
+  font-family: "Droid Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5; }
+
+/* line 58, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.error-container {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 530px;
+  background-color: red;
+  height: 100px; }
+
+/* line 68, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.divider {
+  border: none;
+  border-bottom: 1px solid #cccccc; }
+
+/* line 72, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+header {
+  background-color: #8b9c7c;
+  color: white;
+  padding: 0.5em 0;
+  width: 100%;
+  height: 150px;
+  position: relative; }
+  /* line 80, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  header .logo {
+    background-image: url(/images/header_logo.png);
+    background-repeat: no-repeat;
+    height: 91px;
+    width: 301px;
+    margin: auto; }
+
+/* line 88, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+footer .button {
+  margin: auto; }
+
+/* line 91, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.centered {
+  text-align: center; }
+
+/* line 94, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.button {
+  border-radius: 3px;
+  background-color: #4c5f3c;
+  color: white;
+  cursor: pointer;
+  font-family: Verdana, Geneva, sans-serif;
+  padding: 0.5em;
+  text-decoration: none; }
+  /* line 103, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  .button.install {
+    width: 140px;
+    margin-top: 1em; }
+
+/* line 107, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.right {
+  top: 0;
+  bottom: 0;
+  right: 2em;
+  position: absolute;
+  margin: auto;
+  max-height: 50px; }
+
+/* line 115, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.prince {
+  background-image: url(/images/hamlet.png);
+  background-repeat: no-repeat;
+  content: url(/images/hamlet.png) url(/images/hamlet_wink.png);
+  display: inline-block;
+  height: 692px;
+  width: 343px;
+  backround-size: 343px 692px;
+  position: absolute;
+  top: 3em;
+  left: 2em; }
+  /* line 127, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  .prince:hover {
+    background-image: url(/images/hamlet_wink.png); }
+
+/* line 130, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.item {
+  font-style: normal; }
+  /* line 133, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  .item.completed {
+    text-decoration: line-through; }
+
+/* line 136, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+textarea.code {
+  display: block;
+  width: 100%;
+  height: 235px;
+  border-radius: 5px;
+  border: none;
+  font-family: consolas, monospace;
+  resize: none;
+  margin-bottom: 1em;
+  padding: 1em;
+  font-size: 14px; }
+
+/* line 148, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.base {
+  background-color: #8b9c7c;
+  height: 55px; }
+
+/* line 152, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.pitch {
+  background-color: #aebaa3; }
+
+/* line 155, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.tag-line {
+  height: 580px;
+  padding-left: 400px; }
+
+/* line 159, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.reset {
+  color: black;
+  position: absolute;
+  right: 15px;
+  top: 15px; }
+
+/* line 165, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.left-column, .right-column {
+  width: 50%;
+  display: inline-block;
+  padding: 0.5em;
+  position: relative;
+  vertical-align: top; }
+
+/* line 172, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.output {
+  border-radius: 5px;
+  background-color: white;
+  padding: 0.5em;
+  padding-top: 2em;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; }
+
+/* line 181, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.competing-example {
+  background-color: white;
+  width: 100%;
+  margin-top: 1em; }
+
+/* line 186, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.live-examples {
+  background-color: #ebebeb;
+  padding: 0.75em 0.5em;
+  border-radius: 4px;
+  width: 70%;
+  min-width: 900px;
+  margin: auto;
+  margin-top: -2em; }
+
+/* line 195, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+nav.menu {
+  margin: 1em 0;
+  text-align: center; }
+  /* line 199, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  nav.menu .button {
+    background-color: #ccd0cf;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    width: 19%;
+    margin: 0 2px; }
+    /* line 207, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+    nav.menu .button.active {
+      background-color: #4c5f3c;
+      color: white; }
+
+/* line 211, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.icon {
+  display: inline-block; }
+  /* line 214, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  .icon.github {
+    background-image: url(/images/github_icon.png);
+    background-repeat: no-repeat;
+    width: 29px;
+    height: 25px; }
+
+/* line 220, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+.attribution {
+  font-size: 50%;
+  margin-left: 1em; }

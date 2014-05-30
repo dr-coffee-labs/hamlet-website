@@ -1,0 +1,14 @@
+.example(class=@hideInactive)
+  %h4.title= @header
+  %hr.divider
+  .description
+    %p= @description
+  .left-column
+    %textarea.code.template(placeholder="template code" value=@sourceTemplate)
+    %textarea.code.javascript(placeholder="JavaScript code" value=@sourceCode)
+  .right-column
+    %button.reset(click=@reset) Reset this example
+    .output
+  .competing-example
+    %h3= @competitorName
+    %iframe(src="#{@competitorUrl}/embedded" width="100%" height="300" allowfullscreen="allowfullscreen" frameborder="0")
