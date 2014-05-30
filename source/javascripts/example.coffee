@@ -38,16 +38,20 @@ window.Example = (I={}) ->
   compiledCode.observe(build)
   compiledTemplate.observe(build)
 
+  deactivate = (example) ->
+    example.active(false)
+
   self =
     active: Observable(false)
     activate: ->
-      examples.forEach (e) ->
-        e.active(false)
+      examples.forEach(deactivate)
 
       self.active(true)
     build: build
     class: ->
       "active" if self.active()
+    competitorName: I.competitorName
+    competitorUrl: I.competitorUrl
     description: I.description
     header: I.header
     hideInactive: ->

@@ -3,7 +3,7 @@
 cd source/templates
 
 for file in *.haml; do
-  haml-jr < $file > ${file/.haml}.js
+  hamlet -r Runtime < $file > ${file/.haml}.js
 done
 
 for file in *.js; do

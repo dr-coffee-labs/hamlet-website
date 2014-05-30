@@ -4,11 +4,11 @@
   .description
     %p= @description
   .left-column
-    %textarea.code(placeholder="template code" value=@sourceTemplate)
-    %textarea.code(placeholder="JavaScript code" value=@sourceCode)
+    %textarea.code.template(placeholder="template code" value=@sourceTemplate)
+    %textarea.code.javascript(placeholder="JavaScript code" value=@sourceCode)
   .right-column
     %button.reset(click=@reset) Reset this example
     .output
   .competing-example
-    %h3 Backbone
-    %a(href="http://jsfiddle.net/icoxfog417/pfxP5/" target="_blank") Compare to jsFiddle
+    %h3= @competitorName
+    %iframe(src="#{@competitorUrl}/embedded" width="100%" height="300" allowfullscreen="allowfullscreen" frameborder="0")

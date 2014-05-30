@@ -1,8 +1,7 @@
 #= require jquery
-#= require coffeescript
 #= require showdown
-#= require hamlet_compiler
-#= require hamlet_runtime
+#= require hamlet_full
+#= require hamlet_adapter
 #= require templates
 
 #= require data
