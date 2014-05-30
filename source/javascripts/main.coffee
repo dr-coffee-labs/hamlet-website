@@ -129,7 +129,6 @@ emailClient = Example
         click: ->
           activeMailbox(self)
         name: Observable(I.name)
-        id: Observable(I.id)
         count: ->
           messages().length
         messages: messages
@@ -150,7 +149,7 @@ emailClient = Example
         - each @mailboxes, ->
           .mailbox(@class @click)
             %span= @name
-            %span= @count
+            %span.count= @count
 
     -th = ["Date", "Subject", "From", "To"]
     %main
@@ -317,8 +316,8 @@ filteredList = Example
       %select(value=@sortBy options=@sortOptions)
     %ul
       -each @sorted, ->
-        %li(class=@matchSearch)
-          %img(src="")
+        %li.phone(class=@matchSearch)
+          %img(src=@imageUrl)
           .name= @name
           .description= @snippet
   """
@@ -329,7 +328,7 @@ filteredList = Example
   selector: "#filtered-list"
 
 examples.push(markdownEditor, todo, shoppingCart, emailClient, filteredList)
-examples()[1].active(true)
+examples()[4].active(true)
 
 $("#navigation").template
   items: examples
