@@ -44,8 +44,8 @@
   });
 
   emailClient = Example({
-    code: "months = [\n  \"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\"\n  \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"\n]\n\nMessage = (I={}) ->\n  self =\n    date: Observable(I.date)\n    formattedDate: ->\n      date = self.date()\n      months[date.getMonth()] + ' ' + date.getDate()\n    subject: Observable(I.subject)\n    to: Observable(I.to)\n    from: Observable(I.from)\n\n  self\n\nMailbox = (I={}) ->\n  messages = Observable(I.messages.map(Message))\n\n  self =\n    class: ->\n      \"active\" if activeMailbox() is self\n    click: ->\n      activeMailbox(self)\n    name: Observable(I.name)\n    id: Observable(I.id)\n    count: ->\n      messages().length\n    messages: messages\n\n  self\n\nmailboxes = data.email.map(Mailbox)\nactiveMailbox = Observable(mailboxes[0])\n\nmodel =\n  mailboxes: mailboxes\n  activeMailbox: activeMailbox",
-    template: ".left\n  %h4 Mailboxes\n  %nav\n    - each @mailboxes, ->\n      .mailbox(@class @click)\n        %span= @name\n        %span= @count\n\n-th = [\"Date\", \"Subject\", \"From\", \"To\"]\n%main\n  %h2 Tomstermail\n  %table\n    %tr\n      - each th, (name) ->\n        %th= name\n    - each @activeMailbox().messages, ->\n      %tr\n        %td= @formattedDate\n        %td= @subject\n        %td= @from\n        %td= @to",
+    code: "months = [\n  \"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\"\n  \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"\n]\n\nMessage = (I={}) ->\n  self =\n    date: Observable(I.date)\n    formattedDate: ->\n      date = self.date()\n      months[date.getMonth()] + ' ' + date.getDate()\n    subject: Observable(I.subject)\n    to: Observable(I.to)\n    from: Observable(I.from)\n\n  self\n\nMailbox = (I={}) ->\n  messages = Observable(I.messages.map(Message))\n\n  self =\n    class: ->\n      \"active\" if activeMailbox() is self\n    click: ->\n      activeMailbox(self)\n    name: Observable(I.name)\n    count: ->\n      messages().length\n    messages: messages\n\n  self\n\nmailboxes = data.email.map(Mailbox)\nactiveMailbox = Observable(mailboxes[0])\n\nmodel =\n  mailboxes: mailboxes\n  activeMailbox: activeMailbox",
+    template: ".left\n  %h4 Mailboxes\n  %nav\n    - each @mailboxes, ->\n      .mailbox(@class @click)\n        %span= @name\n        %span.count= @count\n\n-th = [\"Date\", \"Subject\", \"From\", \"To\"]\n%main\n  %h2 Tomstermail\n  %table\n    %tr\n      - each th, (name) ->\n        %th= name\n    - each @activeMailbox().messages, ->\n      %tr\n        %td= @formattedDate\n        %td= @subject\n        %td= @from\n        %td= @to",
     competitorName: "Ember JS",
     competitorUrl: "http://jsfiddle.net/mdiebolt/9mN48",
     header: "Not a framework",
@@ -65,7 +65,7 @@
 
   filteredList = Example({
     code: "search = Observable \"\"\nsortOptions = [\n  {name: \"Alphabetical\", value: \"name\"}\n  {name: \"Newest\", value: \"age\"}\n]\nsortBy = Observable(sortOptions[1])\n\ncompareAge = (a, b) ->\n  a.age() - b.age()\n\ncompareName = (a, b) ->\n  aName = a.name().toLowerCase()\n  bName = b.name().toLowerCase()\n\n  if aName < bName\n     return -1\n  else if aName > bName\n    return 1\n\n  return 0\n\nincludes = (a, b) ->\n  a.toLowerCase().indexOf(b.toLowerCase()) >= 0\n\nPhone = (I={}) ->\n  self =\n    age: Observable(I.age)\n    imageUrl: Observable(I.imageUrl)\n    name: Observable(I.name)\n    snippet: Observable(I.snippet)\n    matchSearch: ->\n      \"hidden\" unless includes(self.name(), search())\n\nphones = Observable(data.phones.map(Phone))\n\nmodel =\n  sortBy: sortBy\n  sortOptions: sortOptions\n  search: search\n  phones: phones\n  sorted: ->\n    val = @sortBy()?.value\n\n    if val is \"name\"\n      @phones().sort(compareName)\n    else if val is \"age\"\n      @phones().sort(compareAge)\n    else\n      @phones()",
-    template: "%label\n  Search:\n  %input(type=\"text\" value=@search)\n%label\n  Sort by:\n  %select(value=@sortBy options=@sortOptions)\n%ul\n  -each @sorted, ->\n    %li(class=@matchSearch)\n      %img(src=\"\")\n      .name= @name\n      .description= @snippet",
+    template: "%label\n  Search:\n  %input(type=\"text\" value=@search)\n%label\n  Sort by:\n  %select(value=@sortBy options=@sortOptions)\n%ul\n  -each @sorted, ->\n    %li.phone(class=@matchSearch)\n      %img(src=@imageUrl)\n      .name= @name\n      .description= @snippet",
     competitorName: "Angular JS",
     competitorUrl: "",
     header: "Kill Complexity",
@@ -75,7 +75,7 @@
 
   examples.push(markdownEditor, todo, shoppingCart, emailClient, filteredList);
 
-  examples()[1].active(true);
+  examples()[4].active(true);
 
   $("#navigation").template({
     items: examples
