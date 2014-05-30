@@ -83,6 +83,7 @@
 
   examples.forEach(function(e) {
     $(e.selector).html(JST.example(e));
+    e.configureEditors();
     return e.build();
   });
 

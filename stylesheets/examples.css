@@ -2,21 +2,21 @@
 #email-client th {
   text-align: left; }
 /* line 5, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#email-client textarea.template {
+#email-client .template {
   height: 380px; }
 /* line 8, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#email-client textarea.javascript {
+#email-client .javascript {
   height: 600px; }
 
 /* line 12, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#filtered-list textarea.javascript {
+#filtered-list .javascript {
   height: 820px; }
 /* line 15, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #filtered-list .output {
   height: 1070px; }
 
 /* line 19, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#markdown-editor textarea.template, #markdown-editor textarea.javascript {
+#markdown-editor .template, #markdown-editor .javascript {
   height: 153px; }
 /* line 23, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #markdown-editor .output p {
@@ -37,17 +37,17 @@
 #shopping-cart select {
   width: 100px; }
 /* line 41, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#shopping-cart textarea.template {
+#shopping-cart .template {
   height: 430px; }
 /* line 44, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#shopping-cart textarea.javascript {
+#shopping-cart .javascript {
   height: 800px; }
 
 /* line 48, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#todo textarea.template {
+#todo .template {
   height: 350px; }
 /* line 51, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#todo textarea.javascript {
+#todo .javascript {
   height: 600px; }
 /* line 54, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #todo .output {
