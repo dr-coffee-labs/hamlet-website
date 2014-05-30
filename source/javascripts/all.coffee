@@ -4,7 +4,10 @@
 #= require hamlet_adapter
 #= require templates
 
-#= require_tree ./ace
+#= require ace/ace
+#= require ace/theme-tomorrow
+#= require ace/mode-coffee
+#= require ace/mode-haml
 
 #= require data
 #= require example
