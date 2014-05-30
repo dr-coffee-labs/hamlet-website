@@ -41,6 +41,7 @@ window.Example = (I={}) ->
     editor.setHighlightActiveLine(false)
     editor.setDisplayIndentGuides(false)
     editor.renderer.setShowGutter(false)
+    editor.renderer.setPadding(10)
 
     session = editor.session
     session.setMode "ace/mode/#{mode}"
