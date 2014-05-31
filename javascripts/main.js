@@ -75,7 +75,7 @@
 
   examples.push(markdownEditor, todo, shoppingCart, emailClient, filteredList);
 
-  examples()[4].active(true);
+  examples()[0].active(true);
 
   $("#navigation").template({
     items: examples
