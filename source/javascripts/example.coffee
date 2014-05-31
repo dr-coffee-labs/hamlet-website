@@ -44,16 +44,16 @@ window.Example = (I={}) ->
   compileTemplate = (str) ->
     try
       compiledTemplate(HamletCompiler.compile(str, runtime: "Runtime"))
-      templateErrors("")
+      templateErrors ""
     catch e
-      templateErrors(e.message)
+      templateErrors "Template Error: #{e.message}"
 
   compileCode = (str) ->
     try
       compiledCode(CoffeeScript.compile str, bare: true)
-      codeErrors("")
+      codeErrors ""
     catch e
-      codeErrors(e.message)
+      codeErrors "Model Error: #{e.message}"
 
   build = ->
     templateFn = eval(compiledTemplate())
@@ -104,6 +104,12 @@ window.Example = (I={}) ->
     sourceTemplate: sourceTemplate
     sourceCode: sourceCode
     reset: ->
+      # HACK set the template and code to empty before you
+      # reset them to the original code in case the editor
+      # value hasn't changed
+      sourceTemplate("")
+      sourceCode("")
+
       sourceTemplate(originalTemplate)
       sourceCode(originalCode)
 

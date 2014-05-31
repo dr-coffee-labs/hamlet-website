@@ -122,7 +122,7 @@ emailClient = Example
       self
 
     Mailbox = (I={}) ->
-      messages = Observable(I.messages.map(Message))
+      messages = Observable I.messages.map(Message)
 
       self =
         class: ->
@@ -136,12 +136,21 @@ emailClient = Example
 
       self
 
+    nullMailbox = Mailbox
+      name: ""
+      messages: []
+
+    activeMailbox = Observable(nullMailbox)
+
     mailboxes = data.email.map(Mailbox)
-    activeMailbox = Observable(mailboxes[0])
 
     model =
       mailboxes: mailboxes
       activeMailbox: activeMailbox
+      showMail: ->
+        "hidden" unless activeMailbox().count() > 0
+      hideMail: ->
+        "hidden" if activeMailbox().count()
   """
   template: """
     .left
@@ -154,8 +163,8 @@ emailClient = Example
 
     -th = ["Date", "Subject", "From", "To"]
     %main
-      %h2 Tomstermail
-      %table
+      %h2(class=@hideMail) Tomstermail
+      %table(class=@showMail)
         %tr
           - each th, (name) ->
             %th= name
@@ -186,18 +195,17 @@ shoppingCart = Example
         quantity: Observable(1)
         subtotal: Observable(0)
         price: ->
-          self.selectedProduct().price
+          @selectedProduct().price
         products: ->
           [nullProduct].concat(@selectedCategory().products)
         selectedProduct: Observable(nullProduct)
         subtotal: ->
-          (self.price() * self.quantity()).toFixed(2)
+          @price() * @quantity()
+        formattedSubtotal: ->
+          "$" + @subtotal().toFixed(2)
         toJSON: ->
-          if self.selectedProduct()
-            {
-              productName: self.selectedProduct()
-              quantity: self.quantity()
-            }
+          if @selectedProduct()
+            { productName: @selectedProduct(), quantity: @quantity() }
         click: (e) ->
           e.preventDefault()
           lines.remove(self)
@@ -219,9 +227,11 @@ shoppingCart = Example
 
         alert("Could now send this to server: " + json)
       total: ->
-        lines().reduce (total, line) ->
-          total + line.price()
+        sum = lines.reduce (total, line) ->
+          total + line.subtotal()
         , 0
+      formattedTotal: ->
+        "$" + @total().toFixed(2)
   """
   template: """
     -th = ["Category", "Product", "Price", "Quantity", "Subtotal", ""]
@@ -240,13 +250,13 @@ shoppingCart = Example
             %td= @price
             %td
               %input(value=@quantity)
-            %td= @subtotal
+            %td= @formattedSubtotal
             %td
               %a(href="#" @click) Remove
     %hr
     .sum
       Total value:
-      %span.total= @total
+      %span.total= @formattedTotal
     %button(click=@addLine) Add product
     %button(click=@submitOrder) Submit order
   """
@@ -291,7 +301,7 @@ filteredList = Example
         matchSearch: ->
           "hidden" unless includes(self.name(), search())
 
-    phones = Observable(data.phones.map(Phone))
+    phones = Observable data.phones.map(Phone)
 
     model =
       sortBy: sortBy
@@ -329,7 +339,7 @@ filteredList = Example
   selector: "#filtered-list"
 
 examples.push(markdownEditor, todo, shoppingCart, emailClient, filteredList)
-examples()[0].active(true)
+examples()[3].active(true)
 
 $("#navigation").template
   items: examples
