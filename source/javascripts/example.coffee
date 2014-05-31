@@ -1,3 +1,33 @@
+Editor = (I={}) ->
+  editor = ace.edit(I.element)
+
+  # editor settings
+  editor.setTheme "ace/theme/tomorrow"
+  editor.setShowPrintMargin(false)
+  editor.setHighlightActiveLine(false)
+  editor.setDisplayIndentGuides(false)
+  editor.renderer.setShowGutter(false)
+  editor.renderer.setPadding(10)
+
+  session = editor.session
+  session.setMode "ace/mode/#{I.mode}"
+  session.setTabSize(2)
+  session.setUseSoftTabs(true)
+  session.setUseWrapMode(false)
+  session.setWrapLimitRange(null, null)
+  session.setUseWorker(false)
+
+  setEditorValue = ->
+    I.sourceCodeObservable editor.getValue()
+
+  # initialize
+  editor.removeListener "change", setEditorValue
+  editor.setValue(I.sourceCodeObservable(), 1)
+  editor.getSession().setUndoManager(new ace.UndoManager)
+  editor.on "change", setEditorValue
+
+  editor
+
 window.Example = (I={}) ->
   templateEditor = null
   codeEditor = null
@@ -10,48 +40,6 @@ window.Example = (I={}) ->
 
   compiledCode = Observable("")
   compiledTemplate = Observable("")
-
-  resetEditorTemplate = (template, editor) ->
-    editor.removeListener "change", setEditorTemplate
-
-    editor.setValue(template, 1)
-    editor.getSession().setUndoManager(new ace.UndoManager)
-
-    editor.on("change", setEditorTemplate)
-
-  setEditorTemplate = ->
-    sourceTemplate(templateEditor.getValue())
-
-  resetEditorJavascript = (javascript, editor) ->
-    editor.removeListener "change", setEditorJavascript
-
-    editor.setValue(javascript, 1)
-    editor.getSession().setUndoManager(new ace.UndoManager)
-
-    editor.on("change", setEditorJavascript)
-
-  setEditorJavascript = ->
-    sourceCode(codeEditor.getValue())
-
-  configureEditor = (element, mode) ->
-    editor = ace.edit(element)
-
-    editor.setTheme "ace/theme/tomorrow"
-    editor.setShowPrintMargin(false)
-    editor.setHighlightActiveLine(false)
-    editor.setDisplayIndentGuides(false)
-    editor.renderer.setShowGutter(false)
-    editor.renderer.setPadding(10)
-
-    session = editor.session
-    session.setMode "ace/mode/#{mode}"
-    session.setTabSize(2)
-    session.setUseSoftTabs(true)
-    session.setUseWrapMode(false)
-    session.setWrapLimitRange(null, null)
-    session.setUseWorker(false)
-
-    editor
 
   compileTemplate = (str) ->
     try
@@ -98,14 +86,16 @@ window.Example = (I={}) ->
     competitorName: I.competitorName
     competitorUrl: I.competitorUrl
     configureEditors: ->
-      template = $(I.selector).find(".code.template").get(0)
-      javascript = $(I.selector).find(".code.javascript").get(0)
+      templateEditor = Editor
+        element: $(I.selector).find(".code.template").get(0)
+        mode: "haml"
+        sourceCodeObservable: self.sourceTemplate
 
-      templateEditor = configureEditor(template, "haml")
-      resetEditorTemplate(self.sourceTemplate(), templateEditor)
+      codeEditor = Editor
+        element: $(I.selector).find(".code.javascript").get(0)
+        mode: "haml"
+        sourceCodeObservable: self.sourceCode
 
-      codeEditor = configureEditor(javascript, "coffee")
-      resetEditorJavascript(self.sourceCode(), codeEditor)
     description: I.description
     header: I.header
     hideInactive: ->

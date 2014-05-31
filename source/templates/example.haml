@@ -12,7 +12,9 @@
     %button.reset(click=@reset) Reset this example
     .output
   .competing-example
-    %h3= @competitorName
+    %h3
+      Compared to
+      = @competitorName
     .left-column
       %iframe.html(src="#{@competitorUrl}/embedded/html" allowfullscreen="allowfullscreen")
       %iframe.javascript(src="#{@competitorUrl}/embedded/js" allowfullscreen="allowfullscreen")
