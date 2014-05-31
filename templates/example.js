@@ -8,7 +8,12 @@
     __runtime.classes("example", this.hideInactive);
     __runtime.push(document.createElement("h4"));
     __runtime.classes("title");
+    __runtime.push(document.createElement("span"));
+    __runtime.classes("icon");
+    __runtime.pop();
+    __runtime.push(document.createElement("span"));
     __runtime.text(this.header);
+    __runtime.pop();
     __runtime.pop();
     __runtime.push(document.createElement("hr"));
     __runtime.classes("divider");

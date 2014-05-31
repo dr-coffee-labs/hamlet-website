@@ -1,46 +1,49 @@
 /* line 4, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+#email-client .icon {
+  background-image: url(/images/email_client.png); }
+/* line 7, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client h2 {
   padding-left: 0.5em; }
-/* line 7, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 10, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client table {
   border-spacing: 0; }
-/* line 10, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 13, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client th {
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd; }
-  /* line 14, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 17, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #email-client th td {
     font-weight: bold; }
-/* line 17, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 20, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client td {
   border-bottom: 1px solid #dddddd; }
-/* line 20, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 23, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client tr {
   cursor: pointer; }
-/* line 23, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 26, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client main {
   left: 30%;
   top: 0;
   position: absolute;
   width: 70%; }
-/* line 29, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 32, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client .output {
   font-size: 12px;
   position: relative;
   height: 400px; }
-/* line 34, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
-#email-client h4 {
-  font-size: 18px; }
-/* line 37, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 37, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  #email-client .output h4 {
+    font-size: 18px; }
+/* line 40, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client .mailbox {
   width: 80%;
   margin: auto;
   padding: 0.5em;
   margin-bottom: 0.5em; }
-  /* line 43, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 46, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #email-client .mailbox:hover, #email-client .mailbox.active {
     background-color: #e3e3e3; }
-/* line 46, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 49, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client .left {
   border: 1px solid #dddddd;
   position: absolute;
@@ -50,20 +53,23 @@
   background-color: #eeeeee;
   height: 100%;
   text-align: center; }
-/* line 56, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 59, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client .count {
   margin: 0 3px; }
-/* line 59, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 62, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client th {
   text-align: left; }
-/* line 62, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 65, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client .template {
   height: 380px; }
-/* line 65, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 68, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #email-client .javascript {
   height: 600px; }
 
-/* line 69, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 72, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+#filtered-list .icon {
+  background-image: url(/images/filtered_list.png); }
+/* line 75, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #filtered-list .phone {
   -webkit-transition-property: height, opacity;
   -moz-transition-property: height, opacity;
@@ -81,14 +87,14 @@
   height: 100px;
   margin: 0.5em 0;
   overflow: hidden; }
-  /* line 82, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 88, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #filtered-list .phone.hidden {
     display: block !important;
     height: 0;
     opacity: 0;
     border: none;
     margin: 0; }
-  /* line 90, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 96, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #filtered-list .phone img {
     position: absolute;
     top: 0;
@@ -97,75 +103,84 @@
     margin: auto;
     width: 80px;
     height: 80px; }
-/* line 99, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 105, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #filtered-list .javascript {
   height: 820px; }
-/* line 102, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 108, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #filtered-list .output {
   height: 1070px; }
 
-/* line 106, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 112, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+#markdown-editor .icon {
+  background-image: url(/images/markdown_editor.png); }
+/* line 115, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #markdown-editor iframe {
   height: 440px; }
-/* line 109, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 118, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #markdown-editor .template, #markdown-editor .javascript {
   height: 153px; }
-/* line 112, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 121, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #markdown-editor .output {
   height: 317px; }
-  /* line 115, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 124, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #markdown-editor .output p {
     margin: 0; }
-  /* line 118, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 127, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #markdown-editor .output h3 {
     padding-bottom: 0; }
-  /* line 121, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 130, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #markdown-editor .output textarea {
     border: 1px solid #dddddd;
     width: 100%;
     height: 120px; }
 
-/* line 127, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 136, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+#shopping-cart .icon {
+  background-image: url(/images/shopping_cart.png); }
+/* line 139, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #shopping-cart th {
   text-align: left; }
-/* line 130, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 142, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #shopping-cart select {
   width: 100px; }
-/* line 133, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 145, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #shopping-cart .template {
   height: 430px; }
-/* line 136, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 148, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #shopping-cart .javascript {
   height: 800px; }
 
-/* line 140, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 152, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+#todo .icon {
+  background-image: url(/images/todo.png); }
+/* line 155, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #todo .template {
   height: 350px; }
-/* line 143, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 158, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #todo .javascript {
   height: 600px; }
-/* line 146, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 161, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #todo .output {
   height: 964px; }
-  /* line 149, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 164, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #todo .output input[type="checkbox"] {
     margin-right: 1em; }
-  /* line 152, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 167, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #todo .output li {
     font-size: 24px;
     padding: 0.5em;
     padding-left: 0; }
-  /* line 157, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 172, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #todo .output li + li {
     border-top: 1px solid #dddddd; }
-  /* line 160, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 175, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #todo .output h2 {
     text-align: center;
     padding-bottom: 0; }
-  /* line 164, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 179, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #todo .output .count {
     margin: 0 3px; }
-  /* line 167, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 182, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #todo .output .clear {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
@@ -177,13 +192,13 @@
     bottom: 0;
     margin: auto;
     height: 25px; }
-  /* line 179, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+  /* line 194, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
   #todo .output .totals {
     width: 100%;
     background-color: #eeeeee;
     position: relative;
     padding: 0.5em; }
-/* line 185, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
+/* line 200, /Users/matt/Code/hamlet-website/source/stylesheets/examples.sass */
 #todo input[type="text"] {
   width: 100%;
   height: 50px;
