@@ -1,6 +1,37 @@
 (function() {
+  var Editor;
+
+  Editor = function(I) {
+    var editor, session, setEditorValue;
+    if (I == null) {
+      I = {};
+    }
+    editor = ace.edit(I.element);
+    editor.setTheme("ace/theme/tomorrow");
+    editor.setShowPrintMargin(false);
+    editor.setHighlightActiveLine(false);
+    editor.setDisplayIndentGuides(false);
+    editor.renderer.setShowGutter(false);
+    editor.renderer.setPadding(10);
+    session = editor.session;
+    session.setMode("ace/mode/" + I.mode);
+    session.setTabSize(2);
+    session.setUseSoftTabs(true);
+    session.setUseWrapMode(false);
+    session.setWrapLimitRange(null, null);
+    session.setUseWorker(false);
+    setEditorValue = function() {
+      return I.sourceCodeObservable(editor.getValue());
+    };
+    editor.removeListener("change", setEditorValue);
+    editor.setValue(I.sourceCodeObservable(), 1);
+    editor.getSession().setUndoManager(new ace.UndoManager);
+    editor.on("change", setEditorValue);
+    return editor;
+  };
+
   window.Example = function(I) {
-    var build, codeEditor, compileCode, compileTemplate, compiledCode, compiledTemplate, configureEditor, deactivate, originalCode, originalTemplate, resetEditorJavascript, resetEditorTemplate, self, setEditorJavascript, setEditorTemplate, sourceCode, sourceTemplate, templateEditor;
+    var build, codeEditor, compileCode, compileTemplate, compiledCode, compiledTemplate, deactivate, originalCode, originalTemplate, self, sourceCode, sourceTemplate, templateEditor;
     if (I == null) {
       I = {};
     }
@@ -12,42 +43,6 @@
     sourceCode = Observable(I.code);
     compiledCode = Observable("");
     compiledTemplate = Observable("");
-    resetEditorTemplate = function(template, editor) {
-      editor.removeListener("change", setEditorTemplate);
-      editor.setValue(template, 1);
-      editor.getSession().setUndoManager(new ace.UndoManager);
-      return editor.on("change", setEditorTemplate);
-    };
-    setEditorTemplate = function() {
-      return sourceTemplate(templateEditor.getValue());
-    };
-    resetEditorJavascript = function(javascript, editor) {
-      editor.removeListener("change", setEditorJavascript);
-      editor.setValue(javascript, 1);
-      editor.getSession().setUndoManager(new ace.UndoManager);
-      return editor.on("change", setEditorJavascript);
-    };
-    setEditorJavascript = function() {
-      return sourceCode(codeEditor.getValue());
-    };
-    configureEditor = function(element, mode) {
-      var editor, session;
-      editor = ace.edit(element);
-      editor.setTheme("ace/theme/tomorrow");
-      editor.setShowPrintMargin(false);
-      editor.setHighlightActiveLine(false);
-      editor.setDisplayIndentGuides(false);
-      editor.renderer.setShowGutter(false);
-      editor.renderer.setPadding(10);
-      session = editor.session;
-      session.setMode("ace/mode/" + mode);
-      session.setTabSize(2);
-      session.setUseSoftTabs(true);
-      session.setUseWrapMode(false);
-      session.setWrapLimitRange(null, null);
-      session.setUseWorker(false);
-      return editor;
-    };
     compileTemplate = function(str) {
       var e;
       try {
@@ -103,13 +98,16 @@
       competitorName: I.competitorName,
       competitorUrl: I.competitorUrl,
       configureEditors: function() {
-        var javascript, template;
-        template = $(I.selector).find(".code.template").get(0);
-        javascript = $(I.selector).find(".code.javascript").get(0);
-        templateEditor = configureEditor(template, "haml");
-        resetEditorTemplate(self.sourceTemplate(), templateEditor);
-        codeEditor = configureEditor(javascript, "coffee");
-        return resetEditorJavascript(self.sourceCode(), codeEditor);
+        templateEditor = Editor({
+          element: $(I.selector).find(".code.template").get(0),
+          mode: "haml",
+          sourceCodeObservable: self.sourceTemplate
+        });
+        return codeEditor = Editor({
+          element: $(I.selector).find(".code.javascript").get(0),
+          mode: "haml",
+          sourceCodeObservable: self.sourceCode
+        });
       },
       description: I.description,
       header: I.header,

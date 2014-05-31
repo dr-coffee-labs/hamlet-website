@@ -467,16 +467,21 @@ footer .button {
     margin-bottom: 0.5em; }
   /* line 211, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
   .tag-line .description {
+    font-size: 18px;
     margin: 1em 0; }
+    /* line 215, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+    .tag-line .description p {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em; }
 
-/* line 214, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 219, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 .reset {
   color: black;
   position: absolute;
   right: 15px;
   top: 15px; }
 
-/* line 220, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 225, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 .left-column, .right-column {
   width: 50%;
   display: inline-block;
@@ -484,11 +489,11 @@ footer .button {
   position: relative;
   vertical-align: top; }
 
-/* line 227, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 232, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 .left-column {
   padding-right: 0.5em; }
 
-/* line 230, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 235, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 .output {
   border-radius: 4px;
   background-color: white;
@@ -498,15 +503,15 @@ footer .button {
   height: 100%;
   overflow-y: auto; }
 
-/* line 239, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 244, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 .competing-example {
   width: 100%; }
-  /* line 242, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  /* line 247, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
   .competing-example .right-column {
     background-color: white;
     border-radius: 4px; }
 
-/* line 246, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 251, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 .live-examples {
   background-color: #ebebeb;
   padding: 0.5em;
@@ -515,11 +520,11 @@ footer .button {
   margin: auto;
   margin-top: -2em; }
 
-/* line 254, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 259, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 nav.menu {
   margin: 1em 0;
   text-align: center; }
-  /* line 258, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  /* line 263, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
   nav.menu .button {
     background-color: #ccd0cf;
     color: black;
@@ -527,28 +532,28 @@ nav.menu {
     display: inline-block;
     width: 19%;
     margin: 0 2px; }
-    /* line 266, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+    /* line 271, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
     nav.menu .button:hover {
       background-color: #c1c6c5; }
-    /* line 269, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+    /* line 274, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
     nav.menu .button:active {
       background-color: #b7bcbb; }
-    /* line 272, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+    /* line 277, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
     nav.menu .button.active {
       background-color: #4c5f3c;
       color: white; }
 
-/* line 276, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 281, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 .icon {
   display: inline-block; }
-  /* line 279, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+  /* line 284, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
   .icon.github {
     background-image: url(/images/github_icon.png);
     background-repeat: no-repeat;
     width: 29px;
     height: 25px; }
 
-/* line 285, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
+/* line 290, /Users/matt/Code/hamlet-website/source/stylesheets/main.sass */
 .attribution {
   font-size: 50%;
   margin-left: 1em; }

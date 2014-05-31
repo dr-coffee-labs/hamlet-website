@@ -69,6 +69,7 @@
     __runtime.push(document.createElement("div"));
     __runtime.classes("competing-example");
     __runtime.push(document.createElement("h3"));
+    __runtime.text("Compared to\n");
     __runtime.text(this.competitorName);
     __runtime.pop();
     __runtime.push(document.createElement("div"));
