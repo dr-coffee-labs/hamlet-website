@@ -105,7 +105,7 @@ window.Example = (I={}) ->
       resetEditorTemplate(self.sourceTemplate(), templateEditor)
 
       codeEditor = configureEditor(javascript, "coffee")
-      resetEditorTemplate(self.sourceCode(), codeEditor)
+      resetEditorJavascript(self.sourceCode(), codeEditor)
     description: I.description
     header: I.header
     hideInactive: ->

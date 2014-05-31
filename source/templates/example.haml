@@ -13,6 +13,8 @@
     .output
   .competing-example
     %h3= @competitorName
-    %iframe.html(src="#{@competitorUrl}/embedded/html" allowfullscreen="allowfullscreen")
-    %iframe.result(src="#{@competitorUrl}/show" allowfullscreen="allowfullscreen")
-    %iframe.javascript(src="#{@competitorUrl}/embedded/js" allowfullscreen="allowfullscreen")
+    .left-column
+      %iframe.html(src="#{@competitorUrl}/embedded/html" allowfullscreen="allowfullscreen")
+      %iframe.javascript(src="#{@competitorUrl}/embedded/js" allowfullscreen="allowfullscreen")
+    .right-column
+      %iframe.result(src="#{@competitorUrl}/show" allowfullscreen="allowfullscreen")
