@@ -5,13 +5,15 @@ $light-gray-green: #aebaa3
 $gray: #ccd0cf
 $light-gray: #ebebeb
 
+$border-radius: 4px
+
 h1, h2, h3, h4, h5, h6
   font-family: "IM Fell DW Pica Pro"
   padding-left: 0.25em
   margin: 0
 
 h1
-  font-size: 3em
+  font-size: 4em
 
 h2
   font-size: 2.5em
@@ -101,7 +103,7 @@ header
     vertical-align: middle
 
   .title
-    padding-top: 0.75em
+    padding-top: 0.4em
     font-weight: normal
 
   .logo
@@ -110,6 +112,7 @@ header
     height: 91px
     width: 70px
     margin: auto
+    margin-right: 0.25em
 
 footer
   .button
@@ -119,7 +122,7 @@ footer
   text-align: center
 
 .button
-  border-radius: 3px
+  border-radius: $border-radius
   background-color: $dark-gray-green
   color: white
   cursor: pointer
@@ -129,8 +132,15 @@ footer
   text-decoration: none
   height: 42px
 
+  &:hover
+    background-color: darken($dark-gray-green, 4%)
+
+  &:active
+    background-color: darken($dark-gray-green, 8%)
+
   &.install
     width: 190px
+    height: 46px
     margin-top: 0.5em
     margin-bottom: 0.5em
 
@@ -150,9 +160,9 @@ footer
   background-repeat: no-repeat
   content: url(/images/hamlet.png) url(/images/hamlet_wink.png)
   display: inline-block
-  height: 692px
-  width: 343px
-  backround-size: 343px 692px
+  height: 519px
+  width: 257px
+  background-size: 257px 519px
   position: absolute
   top: 3em
   left: 2em
@@ -170,11 +180,11 @@ footer
   display: block
   width: 100%
   height: 235px
-  border-radius: 5px
+  border-radius: $border-radius
   border: none
   font-family: consolas, monospace
   resize: none
-  margin-bottom: 1em
+  margin-bottom: 0.5em
   font-size: 14px
 
 .base
@@ -183,10 +193,20 @@ footer
 
 .pitch
   background-color: $light-gray-green
+  padding-top: 1em
 
 .tag-line
-  height: 580px
-  padding-left: 400px
+  height: 380px
+  padding-left: 280px
+  margin: auto
+  width: 90%
+
+  h2
+    padding-left: 0
+    margin-bottom: 0.5em
+
+  .description
+    margin: 1em 0
 
 .reset
   color: black
@@ -197,13 +217,15 @@ footer
 .left-column, .right-column
   width: 50%
   display: inline-block
-  padding: 0.5em
   padding-bottom: 0
   position: relative
   vertical-align: top
 
+.left-column
+  padding-right: 0.5em
+
 .output
-  border-radius: 5px
+  border-radius: $border-radius
   background-color: white
   padding: 0.5em
   padding-top: 2em
@@ -213,12 +235,13 @@ footer
 
 .competing-example
   background-color: white
+  border-radius: $border-radius
   width: 100%
 
 .live-examples
   background-color: $light-gray
-  padding: 0.75em 0.5em
-  border-radius: 4px
+  padding: 0.5em
+  border-radius: $border-radius
   width: 90%
   margin: auto
   margin-top: -2em
@@ -234,6 +257,12 @@ nav.menu
     display: inline-block
     width: 19%
     margin: 0 2px
+
+    &:hover
+      background-color: darken($gray, 4%)
+
+    &:active
+      background-color: darken($gray, 8%)
 
     &.active
       background-color: $dark-gray-green

@@ -17,28 +17,29 @@ window.examples = Observable []
 
 todo = Example
   code: """
+    items = Observable []
+
     completeAll = Observable(false)
     completeAll.observe (val) ->
-      # something
+      items.forEach (i) ->
+        i.checked(val)
 
     model =
       removeFinished: ->
-        items = @items
-        toDelete = items.filter (i) ->
-          i.checked()
-        toDelete.forEach (i) ->
-          items.remove(i)
+        toDelete = @items.filter (i) -> i.checked()
+        toDelete.forEach (i) -> items.remove(i)
+        @completeAll(false)
       completeAll: completeAll
       hideMarkComplete: ->
         "hidden" unless @items().length
       value: Observable ""
-      items: Observable []
+      items: items
       finished: ->
-        @items().filter (item) ->
+        @items.filter (item) ->
           item.checked()
         .length
       unfinished: ->
-        @items().filter (item) ->
+        @items.filter (item) ->
           !item.checked()
         .length
       add: (e) ->
@@ -50,7 +51,7 @@ todo = Example
             "completed" if item.checked()
 
         @items.push(item)
-        @value("")
+        @value ""
     """
   template: """
     %h2 todos
