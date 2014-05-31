@@ -109,7 +109,7 @@
         templateEditor = configureEditor(template, "haml");
         resetEditorTemplate(self.sourceTemplate(), templateEditor);
         codeEditor = configureEditor(javascript, "coffee");
-        return resetEditorTemplate(self.sourceCode(), codeEditor);
+        return resetEditorJavascript(self.sourceCode(), codeEditor);
       },
       description: I.description,
       header: I.header,

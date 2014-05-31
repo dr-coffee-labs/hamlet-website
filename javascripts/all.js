@@ -6881,20 +6881,26 @@ var parser=function(){var parser={trace:function trace(){},yy:{},symbols_:{error
     __runtime.push(document.createElement("h3"));
     __runtime.text(this.competitorName);
     __runtime.pop();
+    __runtime.push(document.createElement("div"));
+    __runtime.classes("left-column");
     __runtime.push(document.createElement("iframe"));
     __runtime.classes("html");
     __runtime.attribute("src", "" + this.competitorUrl + "/embedded/html");
     __runtime.attribute("allowfullscreen", "allowfullscreen");
     __runtime.pop();
     __runtime.push(document.createElement("iframe"));
+    __runtime.classes("javascript");
+    __runtime.attribute("src", "" + this.competitorUrl + "/embedded/js");
+    __runtime.attribute("allowfullscreen", "allowfullscreen");
+    __runtime.pop();
+    __runtime.pop();
+    __runtime.push(document.createElement("div"));
+    __runtime.classes("right-column");
+    __runtime.push(document.createElement("iframe"));
     __runtime.classes("result");
     __runtime.attribute("src", "" + this.competitorUrl + "/show");
     __runtime.attribute("allowfullscreen", "allowfullscreen");
     __runtime.pop();
-    __runtime.push(document.createElement("iframe"));
-    __runtime.classes("javascript");
-    __runtime.attribute("src", "" + this.competitorUrl + "/embedded/js");
-    __runtime.attribute("allowfullscreen", "allowfullscreen");
     __runtime.pop();
     __runtime.pop();
     __runtime.pop();
@@ -23857,7 +23863,7 @@ oop.inherits(FoldMode, BaseFoldMode);
         templateEditor = configureEditor(template, "haml");
         resetEditorTemplate(self.sourceTemplate(), templateEditor);
         codeEditor = configureEditor(javascript, "coffee");
-        return resetEditorTemplate(self.sourceCode(), codeEditor);
+        return resetEditorJavascript(self.sourceCode(), codeEditor);
       },
       description: I.description,
       header: I.header,
