@@ -147,6 +147,8 @@ emailClient = Example
     model =
       mailboxes: mailboxes
       activeMailbox: activeMailbox
+      messages: ->
+        @activeMailbox().messages()
       showMail: ->
         "hidden" unless activeMailbox().count() > 0
       hideMail: ->
@@ -168,7 +170,7 @@ emailClient = Example
         %tr
           - each th, (name) ->
             %th= name
-        - each @activeMailbox().messages, ->
+        - each @messages, ->
           %tr
             %td= @formattedDate
             %td= @subject
