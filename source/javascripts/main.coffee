@@ -87,8 +87,8 @@ markdownEditor = Example
     model =
       value: Observable "Type some *markdown* here!"
       output: ->
-        html = converter.makeHtml(model.value())
-        $('<div>' + html + '</div>').get(0)
+        html = converter.makeHtml(@value())
+        $(html).get()
   """
   template: """
     %h3 Input
