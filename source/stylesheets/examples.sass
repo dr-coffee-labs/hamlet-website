@@ -1,4 +1,6 @@
 @import compass/css3
+@import "sprites/*.png"
+@include all-sprites-sprites
 
 #email-client
   iframe
@@ -12,7 +14,7 @@
       height: 2551px
 
   .icon
-    background-image: url(/images/email_client.png)
+    @extend .sprites-email_client
 
   h2
     padding-left: 0.5em
@@ -89,7 +91,7 @@
 
 #filtered-list
   .icon
-    background-image: url(/images/filtered_list.png)
+    @extend .sprites-filtered_list
 
   .phone
     +transition-property(height, opacity)
@@ -129,7 +131,7 @@
 
 #markdown-editor
   .icon
-    background-image: url(/images/markdown_editor.png)
+    @extend .sprites-markdown_editor
 
   iframe
     &.html
@@ -173,7 +175,7 @@
     height: 1236px
 
   .icon
-    background-image: url(/images/shopping_cart.png)
+    @extend .sprites-shopping_cart
 
   th
     text-align: left
@@ -199,7 +201,7 @@
       height: 2896px
 
   .icon
-    background-image: url(/images/todo.png)
+    @extend .sprites-todo
 
   .template
     height: 350px
