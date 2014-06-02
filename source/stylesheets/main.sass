@@ -1,3 +1,6 @@
+@import "sprites/*.png"
+@include all-sprites-sprites
+
 $dark-gray-green: #4c5f3c
 $gray-green: #8b9c7c
 $light-gray-green: #aebaa3
@@ -69,12 +72,11 @@ body
     width: 42px
     height: 28px
     margin-right: 0.25em
-    background-image: url(/images/install.png)
 
 .examples
   .icon
-    width: 44px
-    height: 43px
+    width: 48px
+    height: 48px
     margin-right: 0.25em
     vertical-align: bottom
 
@@ -114,7 +116,6 @@ header
     font-weight: normal
 
   .logo
-    background-image: url(/images/header_logo.png)
     background-repeat: no-repeat
     height: 91px
     width: 70px
@@ -183,19 +184,18 @@ footer
   left: 190px
 
 .prince
-  background-image: url(/images/hamlet.png)
+  @extend .sprites-hamlet
+
   background-repeat: no-repeat
-  content: url(/images/hamlet.png) url(/images/hamlet_wink.png)
   display: inline-block
   height: 519px
   width: 257px
-  background-size: 257px 519px
   position: absolute
   top: 3em
   left: 2em
 
   &:hover
-    background-image: url(/images/hamlet_wink.png)
+    @extend .sprites-hamlet_wink
 
 .item
   font-style: normal
@@ -306,7 +306,6 @@ nav.menu
   display: inline-block
 
   &.github
-    background-image: url(/images/github_icon.png)
     background-repeat: no-repeat
     width: 29px
     height: 25px
