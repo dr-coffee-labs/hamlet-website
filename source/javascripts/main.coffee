@@ -54,17 +54,19 @@ todo = Example
         @value ""
     """
   template: """
+    - item = ->
+      %li
+        %label
+          %input(type="checkbox" @checked)
+          %span.item(@class)= @description
+
     %h2 todos
     %input(type="text" @value placeholder="What needs to be done?" onkeydown=@add)
     %label(class=@hideMarkComplete)
       %input(type="checkbox" checked=@completeAll)
       %span Mark all as complete
     %ul
-      - each @items, ->
-        %li
-          %label
-            %input(type="checkbox" @checked)
-            %span.item(@class)= @description
+      - each @items, item
     .totals(class=@hideMarkComplete)
       .unfinished
         %span.count= @unfinished
@@ -159,16 +161,6 @@ emailClient = Example
       activeMailbox: activeMailbox
       messageClass: ->
         "hidden" unless @body().length
-      subject: ->
-        activeMessage().subject()
-      to: ->
-        activeMessage().to()
-      from: ->
-        activeMessage().from()
-      formattedDate: ->
-        activeMessage().formattedDate()
-      body: ->
-        activeMessage().body()
       tableHeaders: ["Date", "Subject", "From", "To"]
       messages: ->
         @activeMailbox().messages()
@@ -176,15 +168,19 @@ emailClient = Example
         "hidden" unless @activeMailbox().count()
       hideMail: ->
         "hidden" if @activeMailbox().count()
+
+    ["subject", "to", "from", "formattedDate", "body"].forEach (method) ->
+      model[method] = ->
+        activeMessage()[method]()
+
+    model
   """
   template: """
     .left
       %h4 Mailboxes
       %nav
         - each @mailboxes, ->
-          .mailbox(@class @click)
-            %span= @name
-            %span.count= @count
+          .mailbox(@class @click)= "\#{@name()} \#{@count()}"
     %main
       %h2(class=@hideMail) Tomstermail
       %table(class=@showMail)
@@ -302,11 +298,11 @@ shoppingCart = Example
 filteredList = Example
   code: """
     search = Observable ""
-    sortOptions = [
+    options = [
       {name: "Alphabetical", value: "name"}
       {name: "Newest", value: "age"}
     ]
-    sortBy = Observable(sortOptions[1])
+    sortBy = Observable options[1]
 
     compareAge = (a, b) ->
       a.age() - b.age()
@@ -316,11 +312,11 @@ filteredList = Example
       bName = b.name().toLowerCase()
 
       if aName < bName
-         return -1
+        return -1
       else if aName > bName
         return 1
-
-      return 0
+      else
+        return 0
 
     includes = (a, b) ->
       a.toLowerCase().indexOf(b.toLowerCase()) >= 0
@@ -328,40 +324,36 @@ filteredList = Example
     Phone = (I={}) ->
       self =
         age: Observable(I.age)
-        imageUrl: Observable(I.imageUrl)
+        src: Observable(I.imageUrl)
         name: Observable(I.name)
         snippet: Observable(I.snippet)
-        matchSearch: ->
+        class: ->
           "hidden" unless includes(self.name(), search())
-
-    phones = Observable data.phones.map(Phone)
 
     model =
       sortBy: sortBy
-      sortOptions: sortOptions
+      options: options
       search: search
-      phones: phones
+      phones: Observable data.phones.map(Phone)
       sorted: ->
-        val = @sortBy()?.value
+        val = @sortBy().value
 
         if val is "name"
           @phones().sort(compareName)
         else if val is "age"
           @phones().sort(compareAge)
-        else
-          @phones()
   """
   template: """
     %label
       Search:
-      %input(type="text" value=@search)
+      %input(value=@search type="text")
     %label
       Sort by:
-      %select(value=@sortBy options=@sortOptions)
+      %select(value=@sortBy @options)
     %ul
       -each @sorted, ->
-        %li.phone(class=@matchSearch)
-          %img(src=@imageUrl)
+        %li.phone(@class)
+          %img(@src)
           .name= @name
           .description= @snippet
   """
