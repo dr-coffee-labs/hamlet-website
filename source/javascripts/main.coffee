@@ -109,50 +109,73 @@ emailClient = Example
       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ]
 
+    humanDate = (date) ->
+      months[date.getMonth()] + ' ' + date.getDate()
+
     Message = (I={}) ->
       self =
+        class: ->
+          "active" if activeMessage() is self
+        click: ->
+          activeMessage(self)
         date: Observable(I.date)
         formattedDate: ->
-          date = self.date()
-          months[date.getMonth()] + ' ' + date.getDate()
-        subject: Observable(I.subject)
+          humanDate(self.date())
         to: Observable(I.to)
         from: Observable(I.from)
-
-      self
+        subject: Observable(I.subject)
+        body: Observable(I.body)
 
     Mailbox = (I={}) ->
-      messages = Observable I.messages.map(Message)
-
       self =
         class: ->
           "active" if activeMailbox() is self
         click: ->
           activeMailbox(self)
-        name: Observable(I.name)
+          activeMessage(nullMessage)
         count: ->
-          messages().length
-        messages: messages
-
-      self
+          @messages().length
+        messages: Observable I.messages.map(Message)
+        name: Observable(I.name)
 
     nullMailbox = Mailbox
       name: ""
       messages: []
 
+    nullMessage = Message
+      subject: ""
+      to: ""
+      from: ""
+      date: new Date
+      body: ""
+
     activeMailbox = Observable(nullMailbox)
+    activeMessage = Observable(nullMessage)
 
     mailboxes = data.email.map(Mailbox)
 
     model =
       mailboxes: mailboxes
       activeMailbox: activeMailbox
+      messageClass: ->
+        "hidden" unless @body().length
+      subject: ->
+        activeMessage().subject()
+      to: ->
+        activeMessage().to()
+      from: ->
+        activeMessage().from()
+      formattedDate: ->
+        activeMessage().formattedDate()
+      body: ->
+        activeMessage().body()
+      tableHeaders: ["Date", "Subject", "From", "To"]
       messages: ->
         @activeMailbox().messages()
       showMail: ->
-        "hidden" unless activeMailbox().count() > 0
+        "hidden" unless @activeMailbox().count()
       hideMail: ->
-        "hidden" if activeMailbox().count()
+        "hidden" if @activeMailbox().count()
   """
   template: """
     .left
@@ -162,20 +185,28 @@ emailClient = Example
           .mailbox(@class @click)
             %span= @name
             %span.count= @count
-
-    -th = ["Date", "Subject", "From", "To"]
     %main
       %h2(class=@hideMail) Tomstermail
       %table(class=@showMail)
         %tr
-          - each th, (name) ->
+          - each @tableHeaders, (name) ->
             %th= name
         - each @messages, ->
-          %tr
+          %tr(@click @class)
             %td= @formattedDate
             %td= @subject
             %td= @from
             %td= @to
+      .email(class=@messageClass)
+        %div From
+        %div= @from
+        %div To
+        %div= @to
+        %div Date
+        %div= @formattedDate
+        %hr
+        %h3= @subject
+        %div= @body
   """
   competitorName: "Ember JS"
   competitorUrl: "http://jsfiddle.net/mdiebolt/9mN48"
