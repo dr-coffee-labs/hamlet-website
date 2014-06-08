@@ -100,6 +100,31 @@ window.Example = (I={}) ->
     header: I.header
     hideInactive: ->
       "hidden" unless self.active()
+    loadIFrame: ->
+      # iframe performance optimization
+      # http://www.aaronpeters.nl/blog/iframe-loading-techniques-performance
+      frames =
+        ".left-column": [{
+          class: "html"
+          path: "#{I.competitorUrl}/embedded/html"
+        }, {
+          class: "javascript"
+          path: "#{I.competitorUrl}/embedded/js"
+        }]
+        ".right-column": [{
+          class: "result"
+          path: "#{I.competitorUrl}/show"
+        }]
+
+      for columnSelector, column of frames
+        for data in column
+          iframe = $("<iframe class=#{data.class}></iframe")
+          iframe.get(0).src = data.path
+
+          $target = $("#{I.selector} .competing-example #{columnSelector} .#{data.class}")
+          unless $target.find("iframe").length
+            iframe = $target.html(iframe)
+      null
     selector: I.selector
     sourceTemplate: sourceTemplate
     sourceCode: sourceCode

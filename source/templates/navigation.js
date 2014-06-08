@@ -15,6 +15,7 @@
       __runtime.push(document.createElement("div"));
       __runtime.classes("button", this["class"]);
       __runtime.attribute("click", this.activate);
+      __runtime.attribute("mousedown", this.loadIFrame);
       __runtime.text(this.header);
       return __runtime.pop();
     });
