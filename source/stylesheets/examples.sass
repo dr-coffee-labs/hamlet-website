@@ -5,23 +5,25 @@
 #email-client
   iframe
     &.html
-      height: 1107px
+      height: 1167px
 
     &.javascript
-      height: 1437px
+      height: 1467px
 
     &.result
-      height: 2551px
+      height: 2640px
 
   .icon
     @extend .sprites-email_client
 
   h2
-    padding-left: 0.5em
+    text-align: center
+    padding-top: 2em
 
   table
     border-spacing: 0
     width: 100%
+    margin-top: 4em
 
   th
     border-top: 1px solid #ddd
@@ -50,20 +52,40 @@
   .output
     font-size: 12px
     position: relative
-    height: 986px
+    height: 1586px
 
     h4
       font-size: 18px
+      padding-top: 1em
+      padding-left: 1em
+      text-align: left
+
+    nav
+      margin-top: 3em
+      text-align: left
 
   .mailbox
     cursor: pointer
-    width: 80%
-    margin: auto
-    padding: 0.5em
+    width: 100%
+    padding: 1em
     margin-bottom: 0.5em
+    font-size: 14px
+
+    .count
+      float: right
 
     &:hover, &.active
       background-color: #e3e3e3
+
+  hr
+    border: none
+    border-bottom: 1px solid #DDD
+
+  .email
+    padding: 1em
+
+    h3
+      padding-left: 0
 
   .left
     border-top-left-radius: 4px
@@ -84,12 +106,22 @@
     text-align: left
 
   .template
-    height: 380px
+    height: 480px
 
   .javascript
-    height: 600px
+    height: 1100px
 
 #filtered-list
+  iframe
+    &.html
+      height: 522px
+
+    &.javascript
+      height: 2000px
+
+    &.result
+      height: 4000px
+
   .icon
     @extend .sprites-filtered_list
 
@@ -123,11 +155,19 @@
       width: 80px
       height: 80px
 
+  .template
+    height: 205px
+
   .javascript
-    height: 820px
+    height: 730px
 
   .output
-    height: 1061px
+    height: 941px
+
+    input[type="text"]
+      border: 1px solid #DDD
+      padding: 0.5em
+      margin-right: 1em
 
 #markdown-editor
   .icon
@@ -135,13 +175,13 @@
 
   iframe
     &.html
-      height: 60px
+      height: 90px
 
     &.javascript
-      height: 432px
+      height: 540px
 
     &.result
-      height: 500px
+      height: 635px
 
   .template, .javascript
     height: 153px
@@ -159,6 +199,10 @@
       border: 1px solid #DDD
       width: 100%
       height: 120px
+      resize: none
+      font-family: consolas, monospace
+      font-size: 14px
+      padding: 0.5em
 
 #shopping-cart
   iframe
@@ -172,7 +216,18 @@
       height: 1411px
 
   .output
-    height: 1236px
+    height: 1216px
+
+    table
+      width: 100%
+
+    .quantity, .remove
+      width: 60px
+
+    .quantity input
+      width: 60px
+      padding: 0.5em
+      border: 1px solid #ddd
 
   .icon
     @extend .sprites-shopping_cart
@@ -180,11 +235,14 @@
   th
     text-align: left
 
-  select
-    width: 100px
+  .category, .product
+    width: 25%
+
+    select
+      width: 100%
 
   .template
-    height: 430px
+    height: 410px
 
   .javascript
     height: 800px
@@ -195,10 +253,10 @@
       height: 552px
 
     &.javascript
-      height: 2337px
+      height: 2277px
 
     &.result
-      height: 2896px
+      height: 2832px
 
   .icon
     @extend .sprites-todo
@@ -207,10 +265,10 @@
     height: 350px
 
   .javascript
-    height: 600px
+    height: 570px
 
   .output
-    height: 956px
+    height: 926px
 
     input[type="checkbox"]
       margin-right: 1em
