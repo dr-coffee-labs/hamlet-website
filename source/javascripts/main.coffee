@@ -15,6 +15,24 @@ $("#errors").template
 
 window.examples = Observable []
 
+multiInput = Example
+  code: """
+    model =
+      max: 10
+      value: Observable 5
+  """
+  template: """
+    %input(type="text" @value)
+    %select(@value options=[1..@max])
+    %hr
+    %input(type="range" @value min="1" @max)
+    %hr
+    %progress(@value @max)
+  """
+  header: "Dead Simple"
+  description: ""
+  selector: "#multi-input"
+
 todo = Example
   code: """
     items = Observable []
@@ -101,7 +119,7 @@ markdownEditor = Example
   competitorName: "React JS"
   competitorUrl: "http://jsfiddle.net/mdiebolt/ahpCA"
   header: "Small Footprint"
-  description: "Hamlet weighs in at roughly 2% the size of Angular JS and React JS, but is no less powerful than these large frameworks."
+  description: "Hamlet weighs in at a fraction the size of Angular JS and React JS, but is no less powerful than these large frameworks."
   selector: "#markdown-editor"
 
 emailClient = Example
@@ -365,7 +383,7 @@ filteredList = Example
   description: "Don't bother with overly complicated frameworks and still create robust interactive experiences. Compare the Hamlet version with a 12 part Angular JS tutorial for filtered lists."
   selector: "#filtered-list"
 
-examples.push(markdownEditor, todo, shoppingCart, emailClient, filteredList)
+examples.push(multiInput, markdownEditor, todo, shoppingCart, emailClient, filteredList)
 examples()[0].active(true)
 
 $("#navigation").template
