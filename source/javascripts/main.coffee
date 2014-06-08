@@ -89,7 +89,7 @@ markdownEditor = Example
     model =
       value: Observable "Type some *markdown* here!"
       output: ->
-        html = converter.makeHtml(@value())
+        html = converter.makeHtml @value()
         $(html).get()
   """
   template: """
@@ -99,7 +99,7 @@ markdownEditor = Example
     .content= @output
   """
   competitorName: "React JS"
-  competitorUrl: "http://jsfiddle.net/mdiebolt/xCpxy"
+  competitorUrl: "http://jsfiddle.net/mdiebolt/ahpCA"
   header: "Small Footprint"
   description: "Hamlet weighs in at roughly 2% the size of Angular JS and React JS, but is no less powerful than these large frameworks."
   selector: "#markdown-editor"
@@ -180,9 +180,11 @@ emailClient = Example
       %h4 Mailboxes
       %nav
         - each @mailboxes, ->
-          .mailbox(@class @click)= "\#{@name()} \#{@count()}"
+          .mailbox(@class @click)
+            =@name()
+            %span.count= @count()
     %main
-      %h2(class=@hideMail) Tomstermail
+      %h2(class=@hideMail) Hamstermail
       %table(class=@showMail)
         %tr
           - each @tableHeaders, (name) ->
@@ -194,11 +196,11 @@ emailClient = Example
             %td= @from
             %td= @to
       .email(class=@messageClass)
-        %div From
+        %strong From
         %div= @from
-        %div To
+        %strong To
         %div= @to
-        %div Date
+        %strong Date
         %div= @formattedDate
         %hr
         %h3= @subject
@@ -272,15 +274,15 @@ shoppingCart = Example
       %tbody
         - each @lines, ->
           %tr
-            %td
+            %td.category
               %select(options=@categories value=@selectedCategory)
-            %td
+            %td.product
               %select(options=@products value=@selectedProduct)
-            %td= @price
-            %td
-              %input(value=@quantity)
-            %td= @formattedSubtotal
-            %td
+            %td.price= @price
+            %td.quantity
+              %input(type="number" value=@quantity)
+            %td.subtotal= @formattedSubtotal
+            %td.remove
               %a(href="#" @click) Remove
     %hr
     .sum
@@ -364,7 +366,7 @@ filteredList = Example
   selector: "#filtered-list"
 
 examples.push(markdownEditor, todo, shoppingCart, emailClient, filteredList)
-examples()[3].active(true)
+examples()[0].active(true)
 
 $("#navigation").template
   items: examples
