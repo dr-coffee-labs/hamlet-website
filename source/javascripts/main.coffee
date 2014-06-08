@@ -26,8 +26,7 @@ todo = Example
 
     model =
       removeFinished: ->
-        toDelete = @items.filter (i) -> i.checked()
-        toDelete.forEach (i) -> items.remove(i)
+        @finished().forEach items.remove
         @completeAll(false)
       completeAll: completeAll
       hideMarkComplete: ->
@@ -37,7 +36,8 @@ todo = Example
       finished: ->
         @items.filter (item) ->
           item.checked()
-        .length
+      finishedCount: ->
+        @finished().length
       unfinished: ->
         @items.filter (item) ->
           !item.checked()
@@ -60,7 +60,7 @@ todo = Example
           %input(type="checkbox" @checked)
           %span.item(@class)= @description
 
-    %h2 todos
+    %h2 Todos by Hamlet
     %input(type="text" @value placeholder="What needs to be done?" onkeydown=@add)
     %label(class=@hideMarkComplete)
       %input(type="checkbox" checked=@completeAll)
@@ -73,7 +73,7 @@ todo = Example
         left
       .clear(click=@removeFinished)
         Clear
-        %span.count= @finished
+        %span.count= @finishedCount
         items
   """
   competitorName: "Backbone"
