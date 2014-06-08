@@ -292,7 +292,7 @@ shoppingCart = Example
   competitorName: "Knockout JS"
   competitorUrl: "http://jsfiddle.net/mdiebolt/h2MaW"
   header: "Simple templates"
-  description: "Intuitive, readable templates with sensible error messages"
+  description: "Intuitive, readable templates with sensible error messages."
   selector: "#shopping-cart"
 
 filteredList = Example
@@ -358,7 +358,7 @@ filteredList = Example
           .description= @snippet
   """
   competitorName: "Angular JS"
-  competitorUrl: ""
+  competitorUrl: "http://jsfiddle.net/mdiebolt/BChyV"
   header: "Kill Complexity"
   description: "Don't bother with overly complicated frameworks and still create robust interactive experiences. Compare the Hamlet version with a 12 part Angular JS tutorial for filtered lists."
   selector: "#filtered-list"
