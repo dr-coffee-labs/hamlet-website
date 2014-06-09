@@ -474,18 +474,18 @@ window.data =
     id: "inbox",
     messages: [{
       id: 1,
-      subject: "Welcome to Ember",
-      from: "tomster@emberjs.com",
+      subject: "Welcome to Hamlet",
+      from: "ham@hamlet.coffee",
       to: "user@example.com",
       date: new Date(),
-      body: "Welcome to Ember. We hope you enjoy your stay"
+      body: "Welcome to Hamlet. We hope you enjoy your stay."
     }, {
       id: 2,
-      subject: "Great Ember Resources",
-      from: "tomster@emberjs.com",
+      subject: "Easter eggs",
+      from: "ham@hamlet.coffee",
       to: "user@example.com",
       date: new Date(),
-      body: "Have you seen embercasts.com? How about emberaddons.com?"
+      body: "Did that prince just wink at me?"
     }]
   }, {
     name: "Spam",
@@ -503,11 +503,11 @@ window.data =
     id: "sent-mail",
     messages: [{
       id: 4,
-      subject: "Should I use Ember",
+      subject: "Should I use Hamlet",
       from: "user@example.com",
-      to: "tomster@emberjs.com",
+      to: "ham@hamlet.coffee",
       date: new Date(),
-      body: "Ember looks pretty good, should I use it?"
+      body: "It's looking rad so far."
     }]
   }]
   phones: [{
