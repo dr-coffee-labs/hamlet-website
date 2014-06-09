@@ -18,15 +18,14 @@ window.examples = Observable []
 multiInput = Example
   code: """
     model =
+      min: 1
       max: 10
       value: Observable 5
   """
   template: """
     %input(type="text" @value)
-    %select(@value options=[1..@max])
-    %hr
-    %input(type="range" @value min="1" @max)
-    %hr
+    %select(@value options=[@min..@max])
+    %input(type="range" @value @min @max)
     %progress(@value @max)
   """
   header: "Dead Simple"
