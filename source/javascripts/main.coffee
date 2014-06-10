@@ -28,8 +28,8 @@ multiInput = Example
     %input(type="range" @value @min @max)
     %progress(@value @max)
   """
-  header: "Dead Simple"
-  description: ""
+  header: "Dead simple"
+  description: "Get a feel for Hamlet by trying out each of the examples in our interactive sandbox. Changes to the template or model code will immediately update the generated html on the right. If things get too crazy hit the reset button to start over."
   selector: "#multi-input"
 
 todo = Example
@@ -95,8 +95,8 @@ todo = Example
   """
   competitorName: "Backbone"
   competitorUrl: "http://jsfiddle.net/mdiebolt/2fkLY"
-  header: "Just JavaScript"
-  description: "JavaScript with zero dependencies. Write template backing objects with clean public APIs using the style of JavaScript you love the most. Don't mess with a model system or learn the differences between a Backbone Collection and a native Array. Take a look at how easy it is to create a TODO list."
+  header: "CoffeeScript"
+  description: "Take full advantage of CoffeeScript in your templates. Hamlet doesn't use a crippled templating language and supports embedding arbitrary CoffeeScript expressions. Write expressive, intuitive templates that can be understood at a glance. Check out how easy it is to create a TODO list."
   selector: "#todo"
 
 markdownEditor = Example
@@ -117,8 +117,8 @@ markdownEditor = Example
   """
   competitorName: "React JS"
   competitorUrl: "http://jsfiddle.net/mdiebolt/ahpCA"
-  header: "Small Footprint"
-  description: "Hamlet weighs in at a fraction the size of Angular JS and React JS, but is no less powerful than these large frameworks."
+  header: "Small footprint"
+  description: "Hamlet weighs in at a fraction the size of Angular JS and React JS, but is no less powerful than these large frameworks. Writing maintainable, understandable code for JavaScript applications has never been easier."
   selector: "#markdown-editor"
 
 emailClient = Example
@@ -226,7 +226,7 @@ emailClient = Example
   competitorName: "Ember JS"
   competitorUrl: "http://jsfiddle.net/mdiebolt/9mN48"
   header: "Not a framework"
-  description: "Hamlet is a way to drastically simplify your templating logic. For many applications you won’t need to use a full blown MVC framework. This reduces complexity and allows your team to iterate quickly, without the overhead of learning a whole framework"
+  description: "Hamlet simplies your templating complexity by an order of magnitude by eliminating the need for a view abstraction in addition to a template. For many applications you won’t need to use a full blown MVC framework at all. This reduces complexity and allows your team to iterate quickly, without the overhead of learning a whole framework."
   selector: "#email-client"
 
 shoppingCart = Example
@@ -310,8 +310,8 @@ shoppingCart = Example
   """
   competitorName: "Knockout JS"
   competitorUrl: "http://jsfiddle.net/mdiebolt/h2MaW"
-  header: "Simple templates"
-  description: "Intuitive, readable templates with sensible error messages."
+  header: "Powerful bindings"
+  description: "Create impressive applications in minutes. Coding a cascading select box is quite simple with Hamlet."
   selector: "#shopping-cart"
 
 filteredList = Example
@@ -379,10 +379,10 @@ filteredList = Example
   competitorName: "Angular JS"
   competitorUrl: "http://jsfiddle.net/mdiebolt/BChyV"
   header: "Kill Complexity"
-  description: "Don't bother with overly complicated frameworks and still create robust interactive experiences. Compare the Hamlet version with a 12 part Angular JS tutorial for filtered lists."
+  description: "Avoid working with over-engineered frameworks without sacrificing a great interactive experience. Compare the Hamlet version with an Angular JS tutorial that is 12 steps long."
   selector: "#filtered-list"
 
-examples.push(multiInput, markdownEditor, todo, shoppingCart, emailClient, filteredList)
+examples.push(multiInput, markdownEditor, shoppingCart, todo, emailClient, filteredList)
 examples()[0].active(true)
 
 $("#navigation").template
