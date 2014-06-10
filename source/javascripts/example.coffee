@@ -138,4 +138,7 @@ window.Example = (I={}) ->
       sourceTemplate(originalTemplate)
       sourceCode(originalCode)
 
+      templateErrors ""
+      codeErrors ""
+
   self
