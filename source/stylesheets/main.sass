@@ -299,11 +299,13 @@ nav.menu
   margin-left: 1em
   margin-top: 0.25em
 
-@media all and (max-width: 1192px)
+// Desktop so buttons don't get cramped
+@media all and (max-width: 1196px)
   nav.menu .button
-    margin-bottom: 1em
+    margin-bottom: 0.25em
     width: 30%
 
+// small browsers
 @media all and (max-width: 800px)
   .prince, a.button.github .text
     display: none
@@ -316,6 +318,9 @@ nav.menu
   .tag-line
     padding-left: 0
 
+    h2
+      font-size: 2em
+
   .left-column
     padding-right: 0
 
@@ -323,5 +328,35 @@ nav.menu
     width: 100%
 
   nav.menu .button
-    margin-bottom: 1em
+    margin-bottom: 0.25em
+    width: 48%
+
+// smartphones
+@media all and (min-device-width : 320px) and (max-device-width : 480px)
+  .scroll
+    overflow: scroll
+    -webkit-overflow-scrolling: auto
+
+  .prince, a.button.github .text
+    display: none
+
+  header
+    h1
+      text-align: left
+      padding-left: 0.25em
+
+  .tag-line
+    padding-left: 0
+
+    h2
+      font-size: 2em
+
+  .left-column
+    padding-right: 0
+
+  .left-column, .right-column
+    width: 100%
+
+  nav.menu .button
+    margin-bottom: 0.25em
     width: 48%
