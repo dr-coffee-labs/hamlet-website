@@ -16,6 +16,28 @@ window.demos =
     description: "Get a feel for Hamlet by trying out each of the examples in our interactive sandbox. Changes to the template or model code will immediately update the generated html on the right. If things get too crazy hit the reset button to start over."
     selector: "#multi-input"
 
+  markdownEditor: Example
+    code: """
+      converter = new Showdown.converter()
+
+      model =
+        value: Observable "Type some *markdown* here!"
+        output: ->
+          html = converter.makeHtml @value()
+          $(html).get()
+    """
+    template: """
+      %h3 Input
+      %textarea(@value)
+      %h3 Output
+      .content= @output
+    """
+    competitorName: "React JS"
+    competitorUrl: "http://jsfiddle.net/mdiebolt/ahpCA"
+    header: "Small footprint"
+    description: "Hamlet weighs in at a fraction the size of Angular JS and React JS, but is no less powerful than these large frameworks. Writing maintainable, understandable code for JavaScript applications has never been easier."
+    selector: "#markdown-editor"
+
   todo: Example
     code: """
       items = Observable []
@@ -82,136 +104,6 @@ window.demos =
     header: "CoffeeScript"
     description: "Take full advantage of CoffeeScript in your templates. Hamlet doesn't use a crippled templating language and supports embedding arbitrary CoffeeScript expressions. Write expressive, intuitive templates that can be understood at a glance. Check out how easy it is to create a TODO list."
     selector: "#todo"
-
-  markdownEditor: Example
-    code: """
-      converter = new Showdown.converter()
-
-      model =
-        value: Observable "Type some *markdown* here!"
-        output: ->
-          html = converter.makeHtml @value()
-          $(html).get()
-    """
-    template: """
-      %h3 Input
-      %textarea(@value)
-      %h3 Output
-      .content= @output
-    """
-    competitorName: "React JS"
-    competitorUrl: "http://jsfiddle.net/mdiebolt/ahpCA"
-    header: "Small footprint"
-    description: "Hamlet weighs in at a fraction the size of Angular JS and React JS, but is no less powerful than these large frameworks. Writing maintainable, understandable code for JavaScript applications has never been easier."
-    selector: "#markdown-editor"
-
-  emailClient: Example
-    code: """
-      months = [
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun"
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-      ]
-
-      humanDate = (date) ->
-        months[date.getMonth()] + ' ' + date.getDate()
-
-      Message = (I={}) ->
-        self =
-          class: ->
-            "active" if activeMessage() is self
-          click: ->
-            activeMessage(self)
-          date: Observable(I.date)
-          formattedDate: ->
-            humanDate(self.date())
-          to: Observable(I.to)
-          from: Observable(I.from)
-          subject: Observable(I.subject)
-          body: Observable(I.body)
-
-      Mailbox = (I={}) ->
-        self =
-          class: ->
-            "active" if activeMailbox() is self
-          click: ->
-            activeMailbox(self)
-            activeMessage(nullMessage)
-          count: ->
-            @messages().length
-          messages: Observable I.messages.map(Message)
-          name: Observable(I.name)
-
-      nullMailbox = Mailbox
-        name: ""
-        messages: []
-
-      nullMessage = Message
-        subject: ""
-        to: ""
-        from: ""
-        date: new Date
-        body: ""
-
-      activeMailbox = Observable(nullMailbox)
-      activeMessage = Observable(nullMessage)
-
-      mailboxes = data.email.map(Mailbox)
-
-      model =
-        mailboxes: mailboxes
-        activeMailbox: activeMailbox
-        messageClass: ->
-          "hidden" unless @body().length
-        tableHeaders: ["Date", "Subject", "From", "To"]
-        messages: ->
-          @activeMailbox().messages()
-        showMail: ->
-          "hidden" unless @activeMailbox().count()
-        hideMail: ->
-          "hidden" if @activeMailbox().count()
-
-      ["subject", "to", "from", "formattedDate", "body"].forEach (method) ->
-        model[method] = ->
-          activeMessage()[method]()
-
-      model
-    """
-    template: """
-      .left
-        %h4 Mailboxes
-        %nav
-          - each @mailboxes, ->
-            .mailbox(@class @click)
-              =@name()
-              %span.count= @count()
-      %main
-        %h2(class=@hideMail) Hamstermail
-        %table(class=@showMail)
-          %tr
-            - each @tableHeaders, (name) ->
-              %th= name
-          - each @messages, ->
-            %tr(@click @class)
-              %td= @formattedDate
-              %td= @subject
-              %td= @from
-              %td= @to
-        .email(class=@messageClass)
-          %strong From
-          %div= @from
-          %strong To
-          %div= @to
-          %strong Date
-          %div= @formattedDate
-          %hr
-          %h3= @subject
-          %div= @body
-    """
-    competitorName: "Ember JS"
-    competitorUrl: "http://jsfiddle.net/mdiebolt/9mN48"
-    header: "Not a framework"
-    description: "Hamlet simplifies your templating complexity by an order of magnitude and eliminates the need for a view abstraction in addition to a template. For many applications you won’t need to use a full blown MVC framework at all. This allows your team to iterate quickly without the overhead of learning a whole framework."
-    selector: "#email-client"
 
   shoppingCart: Example
     code: """
@@ -365,3 +257,111 @@ window.demos =
     header: "Kill Complexity"
     description: "Avoid working with over-engineered frameworks without sacrificing a great interactive experience. Compare the Hamlet version with an Angular JS tutorial that is 12 steps long."
     selector: "#filtered-list"
+
+  emailClient: Example
+    code: """
+      months = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun"
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      ]
+
+      humanDate = (date) ->
+        months[date.getMonth()] + ' ' + date.getDate()
+
+      Message = (I={}) ->
+        self =
+          class: ->
+            "active" if activeMessage() is self
+          click: ->
+            activeMessage(self)
+          date: Observable(I.date)
+          formattedDate: ->
+            humanDate(self.date())
+          to: Observable(I.to)
+          from: Observable(I.from)
+          subject: Observable(I.subject)
+          body: Observable(I.body)
+
+      Mailbox = (I={}) ->
+        self =
+          class: ->
+            "active" if activeMailbox() is self
+          click: ->
+            activeMailbox(self)
+            activeMessage(nullMessage)
+          count: ->
+            @messages().length
+          messages: Observable I.messages.map(Message)
+          name: Observable(I.name)
+
+      nullMailbox = Mailbox
+        name: ""
+        messages: []
+
+      nullMessage = Message
+        subject: ""
+        to: ""
+        from: ""
+        date: new Date
+        body: ""
+
+      activeMailbox = Observable(nullMailbox)
+      activeMessage = Observable(nullMessage)
+
+      mailboxes = data.email.map(Mailbox)
+
+      model =
+        mailboxes: mailboxes
+        activeMailbox: activeMailbox
+        messageClass: ->
+          "hidden" unless @body().length
+        tableHeaders: ["Date", "Subject", "From", "To"]
+        messages: ->
+          @activeMailbox().messages()
+        showMail: ->
+          "hidden" unless @activeMailbox().count()
+        hideMail: ->
+          "hidden" if @activeMailbox().count()
+
+      ["subject", "to", "from", "formattedDate", "body"].forEach (method) ->
+        model[method] = ->
+          activeMessage()[method]()
+
+      model
+    """
+    template: """
+      .left
+        %h4 Mailboxes
+        %nav
+          - each @mailboxes, ->
+            .mailbox(@class @click)
+              =@name()
+              %span.count= @count()
+      %main
+        %h2(class=@hideMail) Hamstermail
+        %table(class=@showMail)
+          %tr
+            - each @tableHeaders, (name) ->
+              %th= name
+          - each @messages, ->
+            %tr(@click @class)
+              %td= @formattedDate
+              %td= @subject
+              %td= @from
+              %td= @to
+        .email(class=@messageClass)
+          %strong From
+          %div= @from
+          %strong To
+          %div= @to
+          %strong Date
+          %div= @formattedDate
+          %hr
+          %h3= @subject
+          %div= @body
+    """
+    competitorName: "Ember JS"
+    competitorUrl: "http://jsfiddle.net/mdiebolt/9mN48"
+    header: "Not a framework"
+    description: "Hamlet simplifies your templating complexity by an order of magnitude and eliminates the need for a view abstraction in addition to a template. For many applications you won’t need to use a full blown MVC framework at all. This allows your team to iterate quickly without the overhead of learning a whole framework."
+    selector: "#email-client"
