@@ -23,6 +23,20 @@
         %p It's framework agnostic and focuses on clean declarative templating, leaving you to build your application with your favorite tools. Hamlet leverages the power of native browser APIs to keep your data model and html elements in sync.
 
         %p All of this in only 3.7kb, minified and gzipped!
+
+      %h4 Why do I need it?
+      .description
+        %ul
+          %li
+            %strong Never touch the DOM by hand again -
+            Hamlet does a great job with transparent bidirectional bindings. So much so that in most cases you never have to access a DOM element by hand. The resulting markup is free of excess attrs, data-attrs, and directives.
+          %li
+            %strong Iterate quickly with error proof templates -
+            Tight binding between model code and DOM elements makes templates very portable. This allows you to iterate quickly, moving templates around without having worry about code breaking from brittle selectors.
+          %li
+            %strong Write models with clean, expressive APIs -
+            Models backing your templates can be any style of JavaScript you're comfortable with. This means that models are Plain Old JavaScript Objects with simple APIs that are easy to read, reason about, and debug.
+
       %a.button.install(href="#{install_url}" target="_blank")
         %span.icon.sprites-install
         %span Install Hamlet
