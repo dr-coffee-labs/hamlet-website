@@ -9,6 +9,9 @@
 #= require ace/mode-coffee
 #= require ace/mode-haml
 
+#= require base
 #= require data
 #= require example
+#= require demos
+#= require garden
 #= require main
