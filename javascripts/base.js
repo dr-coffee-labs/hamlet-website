@@ -1,0 +1,1 @@
+(function(){$.fn.template=function(e){var r;return r=this.selector.replace(/#/g,""),$(this).append(JST[r](e))},window.templateErrors=Observable(""),window.codeErrors=Observable("")}).call(this);
