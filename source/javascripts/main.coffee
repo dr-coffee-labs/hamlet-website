@@ -226,7 +226,7 @@ emailClient = Example
   competitorName: "Ember JS"
   competitorUrl: "http://jsfiddle.net/mdiebolt/9mN48"
   header: "Not a framework"
-  description: "Hamlet simplies your templating complexity by an order of magnitude by eliminating the need for a view abstraction in addition to a template. For many applications you won’t need to use a full blown MVC framework at all. This reduces complexity and allows your team to iterate quickly, without the overhead of learning a whole framework."
+  description: "Hamlet simplifies your templating complexity by an order of magnitude and eliminates the need for a view abstraction in addition to a template. For many applications you won’t need to use a full blown MVC framework at all. This allows your team to iterate quickly without the overhead of learning a whole framework."
   selector: "#email-client"
 
 shoppingCart = Example
