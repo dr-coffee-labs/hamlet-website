@@ -1,6 +1,8 @@
 @import "sprites/*.png"
 @include all-sprites-sprites
 
+@import compass/css3
+
 $dark-gray-green: #4c5f3c
 $gray-green: #8b9c7c
 $light-gray-green: #aebaa3
@@ -51,7 +53,7 @@ iframe
   src: url(/fonts/FePIrm27C.otf) format("opentype")
 
 *, *:before, *:after
-  box-sizing: border-box !important
+  +box-sizing(border-box !important)
 
 .hidden
   display: none !important
