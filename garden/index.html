@@ -16,15 +16,17 @@
       ga('send', 'pageview');
     </script>
   </head>
-  <body>
+  <body class='garden garden_index'>
     <header>
-      <h1>Hamlet Garden</h1>
+      <h1>
+        <div class='centered logo sprites-header_logo'></div>
+        <div class='centered title'>Hamlet Garden</div>
+      </h1>
       <a class='button github right' href='https://github.com/dr-coffee-labs/hamlet' target='_blank'>
         <span class='icon github sprites-github_icon'></span>
         <span class='text'>GitHub</span>
       </a>
     </header>
-    <div class='base'></div>
     <section class='live-examples' id='garden'>
       <div class='examples'>
         <div id='inline-events'></div>
@@ -35,6 +37,14 @@
         <div id='flights'></div>
       </div>
     </section>
+    <footer class='centered'>
+      <div class='callout'>Ready to get started?</div>
+      <a class='button install' href='https://github.com/dr-coffee-labs/hamlet#getting-started' target='_blank'>
+        <span class='icon sprites-install'></span>
+        <span>Install Hamlet</span>
+      </a>
+    </footer>
+    <div id='errors'></div>
     <script src="/javascripts/all.js" type="text/javascript"></script>
   </body>
 </html>
