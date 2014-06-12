@@ -330,35 +330,36 @@ window.demos =
       model
     """
     template: """
-      .left
-        %h4 Mailboxes
-        %nav
-          - each @mailboxes, ->
-            .mailbox(@class @click)
-              =@name
-              %span.count= @count
-      %main
-        %h2(class=@hideMail) Hamstermail
-        %table(class=@showMail)
-          %tr
-            - each @tableHeaders, (name) ->
-              %th= name
-          - each @messages, ->
-            %tr(@click @class)
-              %td= @formattedDate
-              %td= @subject
-              %td= @from
-              %td= @to
-        .email(class=@messageClass)
-          %strong From
-          %div= @from
-          %strong To
-          %div= @to
-          %strong Date
-          %div= @formattedDate
-          %hr
-          %h3= @subject
-          %div= @body
+      .email-client
+        .left
+          %h4 Mailboxes
+          %nav
+            - each @mailboxes, ->
+              .mailbox(@class @click)
+                =@name
+                %span.count= @count
+        %main
+          %h2(class=@hideMail) Hamstermail
+          %table(class=@showMail)
+            %tr
+              - each @tableHeaders, (name) ->
+                %th= name
+            - each @messages, ->
+              %tr(@click @class)
+                %td= @formattedDate
+                %td= @subject
+                %td= @from
+                %td= @to
+          .email(class=@messageClass)
+            %strong From
+            %div= @from
+            %strong To
+            %div= @to
+            %strong Date
+            %div= @formattedDate
+            %hr
+            %h3= @subject
+            %div= @body
     """
     competitorName: "Ember JS"
     competitorUrl: "http://jsfiddle.net/mdiebolt/9mN48"
