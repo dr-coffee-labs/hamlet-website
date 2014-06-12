@@ -16,6 +16,19 @@
       ga('create', 'UA-51852110-1', 'hamlet.coffee');
       ga('send', 'pageview');
 
-  %body
+  %body(class=page_classes)
+    %header
+      %h1
+        .centered.logo.sprites-header_logo
+        .centered.title= current_page.data.title
+      %a.button.github.right(href="https://github.com/dr-coffee-labs/hamlet" target="_blank")
+        %span.icon.github.sprites-github_icon
+        %span.text GitHub
     = yield
+    %footer.centered
+      .callout Ready to get started?
+      %a.button.install(href="https://github.com/dr-coffee-labs/hamlet#getting-started" target="_blank")
+        %span.icon.sprites-install
+        %span Install Hamlet
+    #errors
     = javascript_include_tag "all"

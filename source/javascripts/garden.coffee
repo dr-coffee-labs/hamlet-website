@@ -70,7 +70,7 @@ window.garden =
     """
     header: "HTML elements"
     description: "Hamlet won't insert unescaped HTML into a page by itself. A workaround if you really want unsafe HTML content is to create a document fragment or use the `get` method on a jQuery element."
-    selector: "#disable"
+    selector: "#html"
   flights: Example
     code: """
       model =
