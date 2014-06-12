@@ -335,8 +335,8 @@ window.demos =
         %nav
           - each @mailboxes, ->
             .mailbox(@class @click)
-              =@name()
-              %span.count= @count()
+              =@name
+              %span.count= @count
       %main
         %h2(class=@hideMail) Hamstermail
         %table(class=@showMail)
