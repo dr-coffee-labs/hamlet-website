@@ -13,7 +13,7 @@ window.demos =
       %progress(@value @max)
     """
     header: "Dead simple"
-    description: "Get a feel for Hamlet by trying out each of the examples in our interactive sandbox. Changes to the template or model code will immediately update the generated html on the right. If things get too crazy hit the reset button to start over."
+    description: "Get a feel for Hamlet by trying out each of the examples in our interactive sandbox. Changes to the template or model code will immediately update the generated html. If things get too crazy hit the reset button to start over."
     selector: "#multi-input"
 
   markdownEditor: Example
@@ -197,7 +197,6 @@ window.demos =
         {name: "Alphabetical", value: "name"}
         {name: "Newest", value: "age"}
       ]
-      sortBy = Observable options[1]
 
       compareAge = (a, b) ->
         a.age() - b.age()
@@ -226,7 +225,7 @@ window.demos =
             "hidden" unless includes(self.name(), search())
 
       model =
-        sortBy: sortBy
+        sortBy: Observable options[1]
         options: options
         search: search
         phones: Observable data.phones.map(Phone)
