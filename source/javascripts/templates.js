@@ -26,24 +26,28 @@
     __runtime.push(document.createDocumentFragment());
     __runtime.push(document.createElement("div"));
     __runtime.classes("example", this.hideInactive);
-    __runtime.push(document.createElement("h4"));
-    __runtime.classes("title");
-    __runtime.push(document.createElement("span"));
-    __runtime.classes("icon");
-    __runtime.pop();
-    __runtime.push(document.createElement("span"));
-    __runtime.text(this.header);
-    __runtime.pop();
-    __runtime.pop();
-    __runtime.push(document.createElement("hr"));
-    __runtime.classes("divider");
-    __runtime.pop();
-    __runtime.push(document.createElement("div"));
-    __runtime.classes("description");
-    __runtime.push(document.createElement("p"));
-    __runtime.text(this.description);
-    __runtime.pop();
-    __runtime.pop();
+    if (this.header.length) {
+      __runtime.push(document.createElement("h4"));
+      __runtime.classes("title");
+      __runtime.push(document.createElement("span"));
+      __runtime.classes("icon");
+      __runtime.pop();
+      __runtime.push(document.createElement("span"));
+      __runtime.text(this.header);
+      __runtime.pop();
+      __runtime.pop();
+    }
+    if (this.description.length) {
+      __runtime.push(document.createElement("hr"));
+      __runtime.classes("divider");
+      __runtime.pop();
+      __runtime.push(document.createElement("div"));
+      __runtime.classes("description");
+      __runtime.push(document.createElement("p"));
+      __runtime.text(this.description);
+      __runtime.pop();
+      __runtime.pop();
+    }
     __runtime.push(document.createElement("div"));
     __runtime.classes("left-column");
     __runtime.push(document.createElement("div"));

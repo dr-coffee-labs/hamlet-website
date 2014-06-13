@@ -1,10 +1,12 @@
 .example(class=@hideInactive)
-  %h4.title
-    %span.icon
-    %span= @header
-  %hr.divider
-  .description
-    %p= @description
+  -if @header.length
+    %h4.title
+      %span.icon
+      %span= @header
+  -if @description.length
+    %hr.divider
+    .description
+      %p= @description
   .left-column
     .code.template(value=@sourceTemplate)
     .code.javascript(value=@sourceCode)

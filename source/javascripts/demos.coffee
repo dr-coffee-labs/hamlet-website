@@ -1,21 +1,21 @@
-window.demos =
-  multiInput: Example
-    code: """
-      model =
-        min: 1
-        max: 10
-        value: Observable 5
-    """
-    template: """
-      %input(type="text" @value)
-      %select(@value options=[@min..@max])
-      %input(type="range" @value @min @max)
-      %progress(@value @max)
-    """
-    header: "Dead simple"
-    description: "Get a feel for Hamlet by trying out each of the examples in our interactive sandbox. Changes to the template or model code will immediately update the generated html. If things get too crazy hit the reset button to start over."
-    selector: "#multi-input"
+window.multiInput = Example
+  code: """
+    model =
+      min: 1
+      max: 10
+      value: Observable 5
+  """
+  template: """
+    %input(type="text" @value)
+    %select(@value options=[@min..@max])
+    %input(type="range" @value @min @max)
+    %progress(@value @max)
+  """
+  header: ""
+  description: ""
+  selector: "#multi-input"
 
+window.demos =
   markdownEditor: Example
     code: """
       converter = new Showdown.converter()

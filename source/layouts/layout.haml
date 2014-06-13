@@ -20,7 +20,10 @@
     %header
       %h1
         .logo.sprites-header_logo
-        .title= current_page.data.title
+        .title
+          .text= current_page.data.title
+          -if current_page.data.subtitle
+            %h6.subtitle= current_page.data.subtitle
       %a.button.github.right(href="https://github.com/dr-coffee-labs/hamlet" target="_blank")
         %span.icon.github.sprites-github_icon
         %span.text GitHub

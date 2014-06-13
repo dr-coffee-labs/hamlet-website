@@ -16,7 +16,12 @@ window.examples = Observable []
 for name, demo of window.demos
   examples.push(demo)
 
-examples()[0].active(true)
+defaultExample = examples()[0]
+defaultExample.active(true)
+
+setTimeout ->
+  defaultExample.loadIFrame()
+, 1
 
 $("#navigation").template
   items: examples
@@ -32,4 +37,9 @@ for name, demo of window.garden
 
 gardens.forEach(initialize)
 $("#garden .example").removeClass "hidden"
+#
+
+# header demo
+initialize(window.multiInput)
+$("#multi-input .example").removeClass "hidden"
 #
