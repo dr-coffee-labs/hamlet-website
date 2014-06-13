@@ -20,7 +20,10 @@
     <header>
       <h1>
         <div class='logo sprites-header_logo'></div>
-        <div class='title'>Hamlet</div>
+        <div class='title'>
+          <div class='text'>Hamlet</div>
+          <h6 class='subtitle'>Simple and powerful reactive templating</h6>
+        </div>
       </h1>
       <a class='button github right' href='https://github.com/dr-coffee-labs/hamlet' target='_blank'>
         <span class='icon github sprites-github_icon'></span>
@@ -38,32 +41,31 @@
               (pretty much)
             </div>
           </h2>
-          <div class='description'>
-            <p>Hamlet is a simple and powerful reactive templating system.</p>
-            <p>It's framework agnostic and focuses on clean declarative templating, leaving you to build your application with your favorite tools. Hamlet leverages the power of native browser APIs to keep your data model and html elements in sync.</p>
-            <p>All of this in only 3.7kb, minified and gzipped!</p>
-          </div>
-          <h4>Why do I need it?</h4>
-          <div class='description'>
-            <ul class='reasons'>
-              <li>
-                <strong>Never touch the DOM by hand again -</strong>
-                Hamlet does a great job of transparently keeping your model code in sync with the DOM. So much so that in most cases you never have to access a DOM element by hand. The resulting markup is free of excess attrs, data-attrs, and directives.
-              </li>
-              <li>
-                <strong>Iterate quickly with error proof templates -</strong>
-                Tight binding between model code and DOM elements makes templates very portable. This allows you to iterate quickly, moving templates around without having worry about code breaking from brittle selectors.
-              </li>
-              <li>
-                <strong>Write models with clean, expressive APIs -</strong>
-                Models backing your templates can be any style of JavaScript you're comfortable with. This means that models are Plain Old JavaScript Objects with simple APIs that are easy to read, reason about, and debug.
-              </li>
-            </ul>
-          </div>
+          <div id='multi-input'></div>
+          <section class='why'>
+            <h4>Why do I need it?</h4>
+            <div class='description'>
+              <ul class='reasons'>
+                <li>
+                  <strong>Never touch the DOM by hand again -</strong>
+                  Hamlet does a great job of transparently keeping your model code in sync with the DOM. So much so that in most cases you never have to access a DOM element by hand. The resulting markup is free of excess attrs, data-attrs, and directives.
+                </li>
+                <li>
+                  <strong>Iterate quickly with error proof templates -</strong>
+                  Tight binding between model code and DOM elements makes templates very portable. This allows you to iterate quickly, moving templates around without having worry about code breaking from brittle selectors.
+                </li>
+                <li>
+                  <strong>Write models with clean, expressive APIs -</strong>
+                  Models backing your templates can be any style of JavaScript you're comfortable with. This means that models are Plain Old JavaScript Objects with simple APIs that are easy to read, reason about, and debug.
+                </li>
+              </ul>
+            </div>
+          </section>
           <a class='button install' href='https://github.com/dr-coffee-labs/hamlet#getting-started' target='_blank'>
             <span class='icon sprites-install'></span>
             <span>Install Hamlet</span>
           </a>
+          <span>Only 3.7kb, minified and gzipped!</span>
         </div>
         <div class='base'></div>
       </section>
@@ -71,7 +73,6 @@
         <div class='prince'></div>
         <div id='navigation'></div>
         <div class='examples'>
-          <div id='multi-input'></div>
           <div id='todo'></div>
           <div id='markdown-editor'></div>
           <div id='email-client'></div>
