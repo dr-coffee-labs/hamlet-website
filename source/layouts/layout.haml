@@ -19,7 +19,7 @@
   %body(class=page_classes)
     %header
       %h1
-        .logo.sprites-header_logo
+        %a.logo.sprites-header_logo(href="/")
         .title
           .text= current_page.data.title
           -if current_page.data.subtitle
@@ -32,10 +32,7 @@
       %a.button.install(href="https://github.com/dr-coffee-labs/hamlet#getting-started" target="_blank")
         %span.icon.sprites-install
         %span Install Hamlet
-      -if current_page.path == "index.html"
-        %a.button.more(href="/garden")
-          %span.icon.sprites-garden
-          %span More Examples
+      = yield_content :navigation
     #errors
 
     /[if lt IE 9]

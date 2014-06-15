@@ -27,9 +27,9 @@ window.demos =
           $(html).get()
     """
     template: """
-      %h3 Input
+      %h4 Input
       %textarea(@value)
-      %h3 Output
+      %h4 Output
       .content= @output
     """
     competitorName: "React JS"

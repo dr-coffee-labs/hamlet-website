@@ -3,6 +3,11 @@ title: "Hamlet"
 subtitle: "Simple and powerful reactive templating"
 ---
 
+- content_for(:navigation) do
+  %a.button.more(href="/garden")
+    %span.icon.sprites-garden
+    %span More Examples
+
 %main
   %section.pitch
     .tag-line
