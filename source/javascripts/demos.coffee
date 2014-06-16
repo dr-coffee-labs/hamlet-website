@@ -379,6 +379,6 @@ window.demos =
     competitorName: "Ember JS"
     competitorUrl: "http://jsfiddle.net/mdiebolt/9mN48"
     header: "Not a framework"
-    description: "Hamlet simplifies your templating complexity by an order of magnitude and eliminates the need for a view abstraction in addition to a template. For many applications you won’t need to use a full blown MVC framework at all. This allows your team to iterate quickly without the overhead of learning a whole framework."
-    comparison: "Unlike Ember, Hamlet doesn't start with the assumption that you'll be building a large single page JavaScript application. This makes it a great fit for small, encapsulated, reusable widgets. However, since Hamlet focuses on templating, it's a perfect fit for the presentation layer when your application grows large enough to warrant that organization."
+    description: "Hamlet simplifies templating complexity by an order of magnitude by eliminating the need for a view abstraction in addition to a template."
+    comparison: "Unlike Ember, Hamlet doesn't start with the assumption that you'll be building a large single page JavaScript application. This makes it a great fit for small, encapsulated, reusable widgets. However, since Hamlet focuses on templating, it's a perfect fit for the presentation layer when your application grows large enough to warrant such organization."
     selector: "#email-client"
