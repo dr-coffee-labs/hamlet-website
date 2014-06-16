@@ -7,7 +7,7 @@
     %hr.divider
     .description
       %p= @description
-      -if @comparison.length
+      -if @comparison
         %p= @comparison
   .left-column
     .code.template(value=@sourceTemplate)
