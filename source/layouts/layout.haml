@@ -5,6 +5,7 @@
     %meta(content="IE=edge,chrome=1" http-equiv="X-UA-Compatible")
     %title Hamlet - Simple and powerful reactive templating
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Droid+Sans:400,700"
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
     = stylesheet_link_tag "all"
     = favicon_tag "favicon.ico"
     %script
@@ -33,6 +34,8 @@
         %span.icon.sprites-install
         %span Install Hamlet
       = yield_content :navigation
+
+    = partial "chimp"
     #errors
 
     /[if lt IE 9]
