@@ -35,7 +35,7 @@ window.demos =
     competitorName: "React JS"
     competitorUrl: "http://jsfiddle.net/mdiebolt/ahpCA"
     header: "Small footprint"
-    description: "Hamlet weighs in at a fraction the size of Angular JS and React JS, but is no less powerful than these large frameworks. Writing maintainable, understandable code for JavaScript applications has never been easier."
+    description: "Hamlet weighs in at a fraction the size of Angular JS and React JS, but is nearly as powerful as these large frameworks. Writing maintainable, understandable code for JavaScript applications has never been easier."
     comparison: "Like React, Hamlet has a compile step. However, a compiled Hamlet template requires no initialization, change, or teardown code for bindings to work."
     selector: "#markdown-editor"
 
