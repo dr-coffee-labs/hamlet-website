@@ -7,6 +7,8 @@
     %hr.divider
     .description
       %p= @description
+      -if @comparison.length
+        %p= @comparison
   .left-column
     .code.template(value=@sourceTemplate)
     .code.javascript(value=@sourceCode)

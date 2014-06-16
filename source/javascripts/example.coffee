@@ -85,6 +85,7 @@ window.Example = (I={}) ->
       "active" if self.active()
     competitorName: I.competitorName
     competitorUrl: I.competitorUrl
+    comparison: I.comparison
     configureEditors: ->
       templateEditor = Editor
         element: $(I.selector).find(".code.template").get(0)

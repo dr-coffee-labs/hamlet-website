@@ -46,6 +46,11 @@
       __runtime.push(document.createElement("p"));
       __runtime.text(this.description);
       __runtime.pop();
+      if (this.comparison.length) {
+        __runtime.push(document.createElement("p"));
+        __runtime.text(this.comparison);
+        __runtime.pop();
+      }
       __runtime.pop();
     }
     __runtime.push(document.createElement("div"));
