@@ -1,11 +1,13 @@
 window.multiInput = Example
   code: """
+
     model =
       min: 1
       max: 10
       value: Observable 5
   """
   template: """
+
     %input(type="text" @value)
     %select(@value options=[@min..@max])
     %input(type="range" @value @min @max)
@@ -18,6 +20,7 @@ window.multiInput = Example
 window.demos =
   markdownEditor: Example
     code: """
+
       converter = new Showdown.converter()
 
       model =
@@ -27,6 +30,7 @@ window.demos =
           $(html).get()
     """
     template: """
+
       %h4 Input
       %textarea(@value)
       %h4 Output
@@ -41,6 +45,7 @@ window.demos =
 
   todo: Example
     code: """
+
       items = Observable []
 
       completeAll = Observable(false)
@@ -78,6 +83,7 @@ window.demos =
           @value ""
       """
     template: """
+
       - item = ->
         %li
           %label
@@ -109,6 +115,7 @@ window.demos =
 
   shoppingCart: Example
     code: """
+
       nullCategory = {name: "Select...", value: -1, products: []}
       nullProduct = {name: "Select...", value: -1, price: 0}
 
@@ -160,6 +167,7 @@ window.demos =
           "$" + @total().toFixed(2)
     """
     template: """
+
       -th = ["Category", "Product", "Price", "Quantity", "Subtotal", ""]
       %table
         %thead
@@ -195,6 +203,7 @@ window.demos =
 
   filteredList: Example
     code: """
+
       search = Observable ""
       options = [
         {name: "Alphabetical", value: "name"}
@@ -241,6 +250,7 @@ window.demos =
             @phones().sort(compareAge)
     """
     template: """
+
       %label
         Search:
         %input(value=@search type="text")
@@ -263,6 +273,7 @@ window.demos =
 
   emailClient: Example
     code: """
+
       months = [
         "Jan", "Feb", "Mar", "Apr", "May", "Jun"
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
@@ -333,6 +344,7 @@ window.demos =
       model
     """
     template: """
+
       .email-client
         .left
           %h4 Mailboxes

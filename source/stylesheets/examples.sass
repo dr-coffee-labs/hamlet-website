@@ -3,6 +3,15 @@
 @include all-sprites-sprites
 
 #email-client
+  .code.template
+    height: 500px
+
+  .code.javascript
+    height: 1120px
+
+  .output
+    height: 1626px
+
   iframe
     &.html
       height: 1167px
@@ -58,7 +67,6 @@
   .output
     font-size: 12px
     position: relative
-    height: 1586px
 
     h4
       font-size: 18px
@@ -109,13 +117,16 @@
   th
     text-align: left
 
+#filtered-list
   .code.template
-    height: 480px
+    height: 225px
 
   .code.javascript
-    height: 1100px
+    height: 730px
 
-#filtered-list
+  .output
+    height: 961px
+
   iframe
     &.html
       height: 522px
@@ -159,21 +170,22 @@
       width: 80px
       height: 80px
 
-  .code.template
-    height: 205px
-
-  .code.javascript
-    height: 730px
-
   .output
-    height: 941px
-
     input[type="text"]
       border: 1px solid #DDD
       padding: 0.5em
       margin-right: 1em
 
 #multi-input
+  .template
+    height: 100px
+
+  .javascript
+    height: 94px
+
+  .output
+    height: 200px
+
   .icon
     @extend .sprites-simple
 
@@ -188,18 +200,12 @@
   .left-column, .right-column
     max-width: 400px
 
-  .template
-    height: 100px
-
-  .javascript
-    height: 94px
+#markdown-editor
+  .code.template, .code.javascript
+    height: 153px
 
   .output
-    height: 200px
-
-#markdown-editor
-  .icon
-    @extend .sprites-markdown_editor
+    height: 312px
 
   iframe
     &.html
@@ -211,8 +217,8 @@
     &.result
       height: 635px
 
-  .code.template, .code.javascript
-    height: 153px
+  .icon
+    @extend .sprites-markdown_editor
 
   .output
     height: 312px
@@ -233,6 +239,15 @@
       padding: 0.5em
 
 #shopping-cart
+  .code.template
+    height: 430px
+
+  .code.javascript
+    height: 820px
+
+  .output
+    height: 1256px
+
   iframe
     &.html
       height: 702px
@@ -244,8 +259,6 @@
       height: 1411px
 
   .output
-    height: 1216px
-
     table
       width: 100%
 
@@ -269,13 +282,16 @@
     select
       width: 100%
 
+#todo
   .code.template
-    height: 410px
+    height: 370px
 
   .code.javascript
-    height: 800px
+    height: 590px
 
-#todo
+  .output
+    height: 966px
+
   iframe
     &.html
       height: 552px
@@ -289,15 +305,7 @@
   .icon
     @extend .sprites-todo
 
-  .code.template
-    height: 350px
-
-  .code.javascript
-    height: 570px
-
   .output
-    height: 926px
-
     input[type="checkbox"]
       margin-right: 1em
 
