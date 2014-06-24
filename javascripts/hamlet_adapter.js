@@ -1,1 +1,1 @@
-(function(){window.Runtime=Hamlet,window.Observable=Hamlet.Observable,window.HamletCompiler=Hamlet.Compiler,window.CoffeeScript=Hamlet.CoffeeScript}).call(this);
+(function(){window.Runtime=Hamlet,window.Observable=Hamlet.Observable,window.HamletCompiler=Hamlet.Compiler}).call(this);
