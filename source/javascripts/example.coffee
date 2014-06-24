@@ -43,7 +43,7 @@ window.Example = (I={}) ->
 
   compileTemplate = (str) ->
     try
-      compiledTemplate(HamletCompiler.compile(str, runtime: "Runtime"))
+      compiledTemplate(HamletCompiler.compile(str, runtime: "Runtime", compiler: CoffeeScript, exports: false))
       templateErrors ""
     catch e
       templateErrors "Template Error: #{e.message}"
